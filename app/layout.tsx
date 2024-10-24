@@ -7,9 +7,9 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
 export const metadata: Metadata = {
-  title: "Daniel Mekonnen - Computer Science Student and Competitive Programmer",
+  title: "Daniel Mekonnen - Software Engineer and Competitive Programmer",
   description:
-    "Welcome to my personal portfolio website. I am a passionate computer science student at Addis Ababa University with expertise in Python, C++, and Java. Skilled in data structures, algorithms, and competitive programming. Explore my portfolio to learn more about my projects and problem-solving skills.",
+    "Welcome to my personal portfolio website. I am a passionate Software Engineering student at Addis Ababa Science and Technology University with expertise in Python, C++, and Dart. Skilled in data structures, algorithms, and competitive programming. Explore my portfolio to learn more about my projects and problem-solving skills.",
 };
 
 const cubonoFont = localFont({
