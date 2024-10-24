@@ -1,14 +1,6 @@
 <h1 align="center">Welcome to Personal-portfolio 👋</h1>
 
-### Showcase your web development skills and projects with a sleek portfolio built using Next.js and Tailwind CSS.
-
-<p align="center">
-  <kbd>
-    <img src="https://github.com/programmer-rahul/personal-portfolio/blob/main/public/logo/logo.png"></img>
-  </kbd>
-</p>
-
-## View live preview **[here](https://programmer-rahul.vercel.app)**.
+### Personal Portfolio
 
 ## 📚 Sections
 
@@ -22,31 +14,40 @@
 
 1. **Fork this repository:** Click the Fork button located in the top-right corner of this page to fork the repository.
 2. **Clone the repository:**
+
    ```bash
-    $ git clone https://github.com/<your-username>/personal-portfolio.git
+    git clone https://github.com/DanielKinnito/daniel-mekonnen-portfolio.git
    ```
+
 3. **Clone the repository:**
+
    ```bash
-    $ cd personal-portfolio
+    cd personal-portfolio
    ```
+
 4. **Install dependencies:**
    Install packages for the root directory.
+
    ```bash
-     $ yarn
+     yarn
    ```
+
 5. **Start the development server:**
+
    ```bash
-    $ yarn run dev
+    yarn run dev
    ```
+
 6. **Access the application:**
    Open a browser and enter the following URL:
+
    ```bash
      http://localhost:3000/
    ```
 
 ## 🕹️ Usage
 
-### Customize data in the `lib/constants.ts` [folder](https://github.com/programmer-rahul/personal-portfolio/blob/main/lib/constants.ts).
+### Customize data in the `lib/constants.ts` [folder](https://github.com/DanielKinnito/daniek-mekonnen-portfolio/blob/main/lib/constants.ts)
 
 Eg:
 
@@ -73,3 +74,7 @@ const RESUME_LINK = "YOUR RESUME LINK HERE";
 ## 💖 Show Support
 
 Give a ⭐️ if you liked this project!
+
+## Original Creator
+
+<https://github.com/programmer-rahul>
