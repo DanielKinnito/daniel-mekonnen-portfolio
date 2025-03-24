@@ -1,5 +1,4 @@
 import { GITHUB_LINK } from "@/lib/constants";
-const LINK = '<https://github.com/programmer-rahul>';
 import Image from "next/image";
 
 export default function GiveAStar() {
@@ -7,7 +6,7 @@ export default function GiveAStar() {
     <div>
       <a
         className="flex items-center gap-1 hover:cursor-pointer"
-        href={LINK + "/personal-portfolio"}
+        href={GITHUB_LINK + "/daniel-mekonnen-portfolio"}
         target="_blank"
       >
         <Image
