@@ -17,13 +17,11 @@ export default function AddProjects() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Client-side validation
     if (!project.title.trim() || !project.description.trim() || !project.technologies.trim()) {
       alert("All fields are required!");
       return;
     }
 
-    // Sanitize inputs
     const sanitizedProject = {
       title: project.title.trim(),
       description: project.description.trim(),
@@ -44,40 +42,58 @@ export default function AddProjects() {
     }
   };
 
-  if (!authenticated) {
-    return (
-      <form onSubmit={handlePasswordSubmit}>
-        <input
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-    );
-  }
-
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
-        type="text"
-        placeholder="Project Title"
-        value={project.title}
-        onChange={(e) => setProject({ ...project, title: e.target.value })}
-      />
-      <textarea
-        placeholder="Project Description"
-        value={project.description}
-        onChange={(e) => setProject({ ...project, description: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Technologies (comma-separated)"
-        value={project.technologies}
-        onChange={(e) => setProject({ ...project, technologies: e.target.value })}
-      />
-      <button type="submit">Add Project</button>
-    </form>
+    <div className="flex h-screen items-center justify-center bg-background">
+      <div className="w-full max-w-md rounded-lg bg-secondary-background p-6 shadow-lg">
+        {!authenticated ? (
+          <form onSubmit={handlePasswordSubmit} className="space-y-4">
+            <h2 className="text-center text-2xl font-bold text-primary-foreground">Enter Password</h2>
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full rounded-md border border-border bg-transparent p-2 text-primary-foreground outline-none focus:border-main"
+            />
+            <button
+              type="submit"
+              className="w-full rounded-md bg-main py-2 text-white transition hover:opacity-90"
+            >
+              Submit
+            </button>
+          </form>
+        ) : (
+          <form onSubmit={handleFormSubmit} className="space-y-4">
+            <h2 className="text-center text-2xl font-bold text-primary-foreground">Add New Project</h2>
+            <input
+              type="text"
+              placeholder="Project Title"
+              value={project.title}
+              onChange={(e) => setProject({ ...project, title: e.target.value })}
+              className="w-full rounded-md border border-border bg-transparent p-2 text-primary-foreground outline-none focus:border-main"
+            />
+            <textarea
+              placeholder="Project Description"
+              value={project.description}
+              onChange={(e) => setProject({ ...project, description: e.target.value })}
+              className="w-full rounded-md border border-border bg-transparent p-2 text-primary-foreground outline-none focus:border-main"
+            />
+            <input
+              type="text"
+              placeholder="Technologies (comma-separated)"
+              value={project.technologies}
+              onChange={(e) => setProject({ ...project, technologies: e.target.value })}
+              className="w-full rounded-md border border-border bg-transparent p-2 text-primary-foreground outline-none focus:border-main"
+            />
+            <button
+              type="submit"
+              className="w-full rounded-md bg-main py-2 text-white transition hover:opacity-90"
+            >
+              Add Project
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
   );
 }
