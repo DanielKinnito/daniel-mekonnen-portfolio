@@ -3,7 +3,7 @@
 import { ChangeEvent } from "react";
 
 interface FormInputProps {
-  type: "email" | "text";
+  type: "email" | "text" | "password";
   label: string;
   htmlFor: string;
   value: string;
