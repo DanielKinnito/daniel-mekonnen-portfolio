@@ -1,7 +1,6 @@
 import {
   GITHUB_LINK,
   GMAIL_LINK,
-  INSTAGRAM_LINK,
   LINKEDIN_LINK,
 } from "../constants";
 import { Sociel } from "../types/sociel";
@@ -24,12 +23,6 @@ const SOCIELS: Sociel[] = [
     imagePath: "/svg/linkedin.svg",
     text: "Daniel Mekonnen",
     href: LINKEDIN_LINK,
-  },
-  {
-    name: "instagram",
-    imagePath: "/svg/instagram.svg",
-    text: "dani_mek_116",
-    href: INSTAGRAM_LINK,
   },
 ];
 

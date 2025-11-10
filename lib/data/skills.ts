@@ -28,6 +28,7 @@ const SKILLS: Skills = {
     { name: "Postman", imageUrl: "/skills/postman.svg" },
     { name: "VS Code", imageUrl: "/skills/vscode.svg" },
     { name: "Vercel", imageUrl: "/skills/vercel.svg" },
+    { name: "Render", imageUrl: "/skills/render.svg" },
   ],
 };
 

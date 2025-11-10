@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     domains: ["your-image-domain.com"], // Replace with your image domain if needed
   },
-  output: "export", // Enable static HTML export
+  // output: "export", // Commented out for development - uncomment for static export if needed
 };
 
 module.exports = nextConfig;

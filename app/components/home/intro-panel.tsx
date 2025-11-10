@@ -9,8 +9,8 @@ export default function IntroPanel() {
       </h2>
       <TypeWriterText />
       <p className="font-secondary text-base tracking-tight text-primary-foreground sm:text-xl md:text-2xl 2xl:mr-10">
-        Software Engineering student at Addis Ababa Science and Technology University, Trainee at <a href="https://a2sv.org" target="_blank" rel="noopener noreferrer">A2SV</a>, passionate about algorithms, 
-        data structures, and competitive programming. Skilled in Python, C++, Java, JavaScript, Dart, and Flutter.
+        Software Engineering graduate from Addis Ababa Science and Technology University, Former Remote Head of Education and Lecture Squad Lead at <a href="https://a2sv.org" target="_blank" rel="noopener noreferrer">A2SV</a>, passionate about algorithms, 
+        data structures, and competitive programming. Skilled in Python, JavaScript, Dart, C++, TypeScript and Java.
       </p>
       <ContactAndResumeBtns />
 

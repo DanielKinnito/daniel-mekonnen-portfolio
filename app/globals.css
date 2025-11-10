@@ -16,17 +16,43 @@
   --border: 55, 65, 81;
 }
 
+:root.light {
+  --background: 248, 250, 252;
+  --main: 124, 58, 237;
+  --typewriter: 22, 163, 74;
+
+  --primary-background: 255, 255, 255;
+  --primary-foreground: 30, 41, 59;
+
+  --secondary-background: 241, 245, 249;
+  --secondary-foreground: 71, 85, 105;
+
+  --border: 203, 213, 225;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background font-primary text-primary-foreground;
+    @apply bg-background font-primary text-primary-foreground transition-colors duration-300;
   }
 }
 
 * {
   scroll-behavior: smooth;
+}
+
+/* Modern smooth transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Improved focus states for accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid rgba(var(--main));
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .typewriter-text {

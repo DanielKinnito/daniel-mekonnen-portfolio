@@ -4,16 +4,16 @@ export default function AboutText() {
       <p>
         Hello, I&apos;m Daniel, a{" "}
         <span className="text-typewriter">
-          passionate programmer and Software Engineering student
+          passionate programmer and Software Engineering graduate
         </span>{" "}
-        at Addis Ababa Science and Technology University. With a strong foundation in
-        <span className="text-typewriter"> Python, C++, Java, JavaScript, Dart, and Flutter</span>, I excel in crafting
-        dynamic and innovative solutions across various programming challenges. I am exceptionally skilled at developing mobile applications using Flutter.
+        from Addis Ababa Science and Technology University. With a strong foundation in
+        <span className="text-typewriter"> Python, C++, Java, JavaScript, TypeScript,  and Dart</span>, I excel in crafting
+        dynamic and innovative solutions across various programming challenges. I am exceptionally skilled in Backend development with Django and FastAPI, and mobile application development using Flutter.
       </p>
       <p>
         My journey in programming has been marked by a relentless drive for{" "}
         <span className="text-typewriter">problem-solving and algorithmic thinking</span>.
-        I am known for my{" "}
+        I am known for my{" "}<span className="text-typewriter">expertise in backend development with Django and FastAPI, </span>
         <span className="text-typewriter">competitive programming skills</span>, honed through
         a year of intensive training with <a href="https://a2sv.org" target="_blank" rel="noopener noreferrer" className="text-main hover:underline">A2SV</a> (Africa to Silicon Valley).
         From data structures to algorithms, I enjoy leveraging my skills to create efficient and{" "}

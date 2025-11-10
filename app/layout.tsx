@@ -5,11 +5,12 @@ import { Sofia_Sans, Playpen_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import { ThemeProvider } from "./components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Daniel Mekonnen - Software Engineer and Competitive Programmer",
   description:
-    "Welcome to my personal portfolio website. I am a passionate Software Engineering student at Addis Ababa Science and Technology University with expertise in Python, C++, and Dart. Skilled in data structures, algorithms, and competitive programming. Explore my portfolio to learn more about my projects and problem-solving skills.",
+    "Welcome to my personal portfolio website. I am a passionate Software Engineering graduate from Addis Ababa Science and Technology University with expertise in Python, C++, and Dart. Skilled in data structures, algorithms, and competitive programming. Explore my portfolio to learn more about my projects and problem-solving skills.",
 };
 
 const cubonoFont = localFont({
@@ -37,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="no-scrollbar">
+    <html lang="en" className="no-scrollbar" suppressHydrationWarning>
       <body
         className={cn(
           primaryFont.variable,
@@ -45,11 +46,13 @@ export default function RootLayout({
           cubonoFont.variable,
         )}
       >
-        <main className="h-full w-full">
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <ThemeProvider>
+          <main className="h-full w-full">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
