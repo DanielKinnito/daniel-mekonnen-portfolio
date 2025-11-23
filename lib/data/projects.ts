@@ -3,6 +3,16 @@ import { Projects } from "../types/project";
 
 const PROJECTS: Projects = [
   {
+    name: "Weraj Ale",
+    description:
+      "Weraj Ale is a community-driven platform for sharing and discovering public transport routes in Ethiopia. Users can find prices, vehicle types, and routes for taxis, buses, and more.",
+    imageUrl: "/projects/weraj-ale/landing.png",
+    urls: {
+      repo: "https://github.com/DanielKinnito/weraj-ale",
+      liveDemo: "https://weraj-ale.vercel.app/",
+    },
+  },
+  {
     name: "Competitive Programming Solutions",
     description:
       "A collection of my solutions to various competitive programming problems from platforms like Codeforces, LeetCode, and HackerRank. Demonstrates my problem-solving skills and algorithmic thinking.",
