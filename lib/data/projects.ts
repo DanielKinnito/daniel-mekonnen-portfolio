@@ -3,15 +3,25 @@ import { Projects } from "../types/project";
 
 const PROJECTS: Projects = [
   {
-    name: "Weraj Ale",
+    name: "Attune",
     description:
-      "Weraj Ale is a community-driven platform for sharing and discovering public transport routes in Ethiopia. Users can find prices, vehicle types, and routes for taxis, buses, and more.",
-    imageUrl: "/projects/weraj-ale/landing.png",
+      "Seamlessly switch between execution environments (Node.js, Python) in VS Code.",
+    imageUrl: "/projects/attune/icon.png",
     urls: {
-      repo: "https://github.com/DanielKinnito/weraj-ale",
-      liveDemo: "https://weraj-ale.vercel.app/",
+      repo: "https://github.com/DanielKinnito/attune",
+      liveDemo: "https://marketplace.visualstudio.com/items?itemName=kinnito.attune",
     },
   },
+  // {
+  //   name: "Weraj Ale",
+  //   description:
+  //     "Weraj Ale is a community-driven platform for sharing and discovering public transport routes in Ethiopia. Users can find prices, vehicle types, and routes for taxis, buses, and more.",
+  //   imageUrl: "/projects/weraj-ale/landing.png",
+  //   urls: {
+  //     repo: "https://github.com/DanielKinnito/weraj-ale",
+  //     liveDemo: "https://weraj-ale.vercel.app/",
+  //   },
+  // },
   {
     name: "Competitive Programming Solutions",
     description:
