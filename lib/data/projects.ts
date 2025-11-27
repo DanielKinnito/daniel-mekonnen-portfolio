@@ -52,16 +52,16 @@ const PROJECTS: Projects = [
       liveDemo: "",
     },
   },
-  {
-    name: "Terminal Bench",
-    description:
-      "A command-line benchmarking tool for performance analysis. Provides comprehensive metrics and visualizations for testing and comparing system performance across different configurations.",
-    imageUrl: "/projects/project4/terminal-bench.png",
-    urls: {
-      repo: GITHUB_LINK + "/terminal-bench",
-      liveDemo: "",
-    },
-  },
+  // {
+  //   name: "Terminal Bench",
+  //   description:
+  //     "A command-line benchmarking tool for performance analysis. Provides comprehensive metrics and visualizations for testing and comparing system performance across different configurations.",
+  //   imageUrl: "/projects/project4/terminal-bench.png",
+  //   urls: {
+  //     repo: GITHUB_LINK + "/terminal-bench",
+  //     liveDemo: "",
+  //   },
+  // },
   {
     name: "Smart Legal Assistance Platform",
     description:
