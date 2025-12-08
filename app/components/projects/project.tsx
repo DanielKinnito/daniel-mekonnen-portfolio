@@ -23,7 +23,8 @@ export default function Project({
           src={imageUrl}
           width={1920}
           height={1080}
-          alt="project-main"
+          alt={`Screenshot of ${name}`}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="h-full w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
@@ -40,6 +41,7 @@ export default function Project({
               <a
                 href={urls.liveDemo}
                 target="_blank"
+                aria-label={`Live demo of ${name}`}
                 className="cursor-pointer rounded-full border border-transparent bg-transparent px-3 py-1 text-typewriter/80 transition-all duration-200 hover:border-typewriter hover:bg-typewriter/10 hover:text-typewriter lg:text-xl"
               >
                 Live Demo
@@ -48,13 +50,14 @@ export default function Project({
             <a
               href={urls.repo}
               target="_blank"
+              aria-label={`Source code for ${name} on GitHub`}
               className="rounded-full p-1 transition-all duration-200 hover:bg-main/10"
             >
               <Image
                 src={"/skills/github.svg"}
                 width={40}
                 height={40}
-                alt="project-main"
+                alt="GitHub"
                 className="w-6 cursor-pointer transition-transform duration-200 hover:scale-110 lg:w-7"
               />
             </a>

@@ -12,6 +12,16 @@ const PROJECTS: Projects = [
       liveDemo: "https://marketplace.visualstudio.com/items?itemName=kinnito.attune",
     },
   },
+  {
+    name: "Scoundrel Solo Dungeon Crawl",
+    description:
+      "A dark, atmospheric dungeon crawler game built with Next.js, Tailwind CSS, and Supabase. Features real-time gameplay, leaderboards, and secure authentication.",
+    imageUrl: "/projects/scoundrel/card.png",
+    urls: {
+      repo: "https://github.com/DanielKinnito/scoundrel-dungeon-crawl",
+      liveDemo: "https://scoundrel-solo.vercel.app/",
+    },
+  },
   // {
   //   name: "Weraj Ale",
   //   description:

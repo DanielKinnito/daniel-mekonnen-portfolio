@@ -11,7 +11,7 @@ interface IconButtonProps {
 }
 
 const defaultClasses =
-  "border-2 text-base px-2 py-[.1rem] sm:py-1 sm:px-3 md:text-xl 2xl:text-2xl rounded-md text-primary hover:opacity-90 flex items-center transition-all hover:scale-105 hover:translate-x-1 cursor-pointer gap-1";
+  "border-2 text-base px-4 py-3 md:text-xl 2xl:text-2xl rounded-md text-primary hover:opacity-90 flex items-center transition-all hover:scale-105 hover:translate-x-1 cursor-pointer gap-1 min-h-[44px]";
 
 const primaryClasses = "button-primary";
 
@@ -27,7 +27,7 @@ export default function Button({
         primaryClasses
       )}
     >
-      <button>{text}</button>
+      <span>{text}</span>
       {icon.trim() && (
         <Image
           src={icon}
