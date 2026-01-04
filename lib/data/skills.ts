@@ -20,6 +20,7 @@ const SKILLS: Skills = {
     { name: "Express.js", imageUrl: "/skills/expressjs.svg" },
     { name: "MongoDB", imageUrl: "/skills/mongodb.svg" },
     { name: "Firebase", imageUrl: "/skills/firebase.svg" },
+    { name: "Go", imageUrl: "/skills/go.svg" },
   ],
   tools: [
     { name: "Git", imageUrl: "/skills/git.svg" },

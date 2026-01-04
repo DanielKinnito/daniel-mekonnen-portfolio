@@ -3,256 +3,130 @@
 @tailwind utilities;
 
 :root {
-  --background: 13, 18, 36;
-  --main: 139, 92, 246;
-  --typewriter: 34, 197, 94;
+  --background: 8, 8, 8;
+  --main: 40, 180, 20; /* Muted green */
+  --typewriter: 40, 180, 20;
+  
+  --primary-background: 8, 8, 8;
+  --primary-foreground: 180, 180, 180; /* Dimmer white */
 
-  --primary-background: ;
-  --primary-foreground: 244, 244, 245;
+  --secondary-background: 12, 12, 12;
+  --secondary-foreground: 40, 180, 20;
 
-  --secondary-background: 17, 24, 39;
-  --secondary-foreground: 161, 161, 170;
-
-  --border: 55, 65, 81;
-}
-
-:root.light {
-  --background: 248, 250, 252;
-  --main: 124, 58, 237;
-  --typewriter: 22, 163, 74;
-
-  --primary-background: 255, 255, 255;
-  --primary-foreground: 30, 41, 59;
-
-  --secondary-background: 241, 245, 249;
-  --secondary-foreground: 71, 85, 105;
-
-  --border: 203, 213, 225;
+  --border: 40, 80, 40; /* Dimmer border */
+  
+  --font-vt323: 'VT323', monospace;
+  --font-share-tech: 'Share Tech Mono', monospace;
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/20 box-border;
   }
   body {
-    @apply bg-background font-primary text-primary-foreground transition-colors duration-300;
+    @apply bg-dark-bg font-mono text-[#b4b4b4] overflow-x-hidden selection:bg-neon-green/80 selection:text-black;
+    /* Removed text-shadow for crisper text */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-tech uppercase tracking-wider text-[#c0c0c0];
   }
 }
 
-* {
-  scroll-behavior: smooth;
-}
-
-/* Modern smooth transitions */
-a, button {
-  transition: all 0.2s ease-in-out;
-}
-
-/* Improved focus states for accessibility */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid rgba(var(--main));
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-.typewriter-text {
-  font-weight: 600;
-  min-width: 280px;
-  color: #fff;
-}
-
-.typewriter-text span {
-  position: relative;
-}
-
-.typewriter-text span::before {
-  content: "Web Developer";
-  color: rgba(var(--typewriter));
-  animation: words 20s infinite;
-}
-
-.typewriter-text span::after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  background-color: rgba(var(--background));
-  border-left: 2px solid rgba(var(--typewriter));
-  right: -8px;
-  animation:
-    cursor 0.8s infinite,
-    typing 20s steps(14) infinite;
-}
-
-@keyframes cursor {
-  to {
-    border-left: 2px solid rgba(var(--typewriter));
-  }
-}
-
-@keyframes words {
-  0%,
-  20% {
-    content: "Mobile App Developer";
-  }
-  21%,
-  40% {
-    content: "Full Stack Developer";
-  }
-  41%,
-  60% {
-    content: "Competitive Programmer";
-  }
-  61%,
-  80% {
-    content: "Backend Specialist";
-  }
-  81%,
-  100% {
-    content: "Web Developer";
-  }
-}
-
-@keyframes typing {
-  10%,
-  15%,
-  30%,
-  35%,
-  50%,
-  55%,
-  70%,
-  75%,
-  90%,
-  95% {
-    width: 0;
-  }
-  5%,
-  20%,
-  25%,
-  40%,
-  45%,
-  60%,
-  65%,
-  80%,
-  85% {
-    width: calc(100% + 8px);
-  }
-}
-
-/* to remove default scroll bar  */
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* infinite carousel  */
-.carousel {
-  --card-width: 80px;
-  --card-height: 80px;
-
-  width: 100%;
-  height: calc(var(--card-height));
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
-}
-
-.carousel .track {
-  width: 100%;
-  height: 100%;
-  min-width: calc(var(--card-width) * var(--card-items));
-  display: flex;
-  position: relative;
-}
-
-.carousel .track .card {
-  width: var(--card-width);
-  height: var(--card-height);
-  position: absolute;
-
-  transition: filter 0.5s;
-  animation: move 10s linear infinite;
-  animation-delay: calc((10s / var(--card-items)) * (var(--card-index) * -1));
-}
-
-@keyframes move {
-  0% {
-    left: 100%;
-  }
-  100% {
-    left: calc(var(--card-width) * -1);
-  }
-}
-
-.carousel:hover .card {
-  animation-play-state: paused !important;
-  filter: grayscale(1);
-}
-.carousel .card:hover {
-  filter: grayscale(0);
-}
-
-.carousel[data-reverse="true"] .card {
-  animation: reverseMove 10s linear infinite;
-  animation-delay: calc((10s / var(--card-items)) * (var(--card-index) * -1));
-}
-@keyframes reverseMove {
-  from {
-    left: calc(var(--card-width) * -1);
-  }
-  to {
-    left: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .carousel {
-    --card-width: 150px;
-    --card-height: 150px;
-  }
-}
-@media (min-width: 1024px) {
-  .carousel {
-    --card-width: 130px;
-    --card-height: 130px;
-  }
-}
-
-/* blob animation  */
-.blob {
+/* CRT Scanline Effect */
+.crt::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background: linear-gradient(
-    64deg,
-    rgba(var(--main)) 23%,
-    rgba(var(--main)) 23%,
-    rgba(var(--typewriter)) 80%
-  );
-
-  border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%;
-  transform: rotate(0deg);
-  will-change: border-radius, transform;
-
-  animation:
-    blob 2s ease-in infinite,
-    spin 9s alternate-reverse infinite;
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ),
+  linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  z-index: 50;
+  pointer-events: none;
 }
 
-@keyframes blob {
-  0%,
-  100% {
-    border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%;
-  }
-  50% {
-    border-radius: 72% 28% 50% 50% / 55% 26% 74% 45%;
-  }
+.crt::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 50;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
+@keyframes flicker {
+  0% { opacity: 0.027951; }
+  5% { opacity: 0.044737; }
+  10% { opacity: 0.046313; }
+  15% { opacity: 0.010427; }
+  20% { opacity: 0.035414; }
+  25% { opacity: 0.037946; }
+  30% { opacity: 0.035542; }
+  35% { opacity: 0.057393; }
+  40% { opacity: 0.053915; }
+  45% { opacity: 0.054818; }
+  50% { opacity: 0.041688; }
+  55% { opacity: 0.015241; }
+  60% { opacity: 0.036074; }
+  65% { opacity: 0.019951; }
+  70% { opacity: 0.03862; }
+  75% { opacity: 0.043599; }
+  80% { opacity: 0.046206; }
+  85% { opacity: 0.043834; }
+  90% { opacity: 0.01526; }
+  95% { opacity: 0.003998; }
+  100% { opacity: 0.043285; }
+}
+
+/* Glitch Utilities */
+.glitch-text {
+  position: relative;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+}
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #bc13fe;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-1 2s infinite linear alternate-reverse;
+}
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #39ff14;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #39ff14; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2cb80d; 
 }

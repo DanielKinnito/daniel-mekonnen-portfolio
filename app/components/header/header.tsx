@@ -3,7 +3,6 @@
 import CircularLightEffect from "../ui/circular-light-effect";
 import BarIcon from "./bar-icon";
 import NavBar from "./nav-bar";
-import ThemeToggle from "../ui/theme-toggle";
 
 export default function Header() {
   return (
@@ -12,12 +11,7 @@ export default function Header() {
         {/* navigation links  */}
         <NavBar />
 
-        <div className="hidden md:block">
-          <ThemeToggle />
-        </div>
-
         <div className="flex items-center gap-4 md:hidden">
-          <ThemeToggle />
           <BarIcon />
         </div>
 

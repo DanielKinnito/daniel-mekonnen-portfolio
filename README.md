@@ -1,80 +1,55 @@
-<h1 align="center">Welcome to Personal-portfolio 👋</h1>
+# Daniel Mekonnen // Portfolio
 
-### Personal Portfolio
+A cyber-security inspired portfolio built with **Next.js**, **React**, and **Tailwind CSS**.
 
-## 📚 Sections
+## Overview
 
-- Hero Section ✨
-- About Section 👤
-- Skills Section 🛠️
-- Projects Section 🚀
-- Contact Section 📞
+This project represents my digital identity—a fusion of modern web development and a utilitarian, terminal-based aesthetic. It features a fully interactive CLI, and a clean, responsive design that stays out of your way.
 
-## ⚙️ Getting Started
+## Tech Stack
 
-1. **Fork this repository:** Click the Fork button located in the top-right corner of this page to fork the repository.
-2. **Clone the repository:**
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS + Custom Animations
+- **Types**: TypeScript
+- **State**: React Hooks (No heavy state libraries)
+- **Emulation**: js-dos (for 16-bit legacy support)
 
+## Features
+
+- **Integrated Terminal**: a fully functional command line interface to navigate the site.
+- **Interactive Visuals**: Matrix rain, ASCII network graphs, and signal waves that react to user input.
+- **Project Showcase**: A filtered view of my best work without the clutter.
+- **Legacy Mode**: Run the original DOOM (1993) directly in the browser.
+
+## Running Locally
+
+1. **Clone**:
    ```bash
-    git clone https://github.com/DanielKinnito/daniel-mekonnen-portfolio.git
+   git clone https://github.com/DanielKinnito/daniel-mekonnen-portfolio.git
+   cd personal-portfolio
    ```
 
-3. **Clone the repository:**
-
+2. **Install**:
    ```bash
-    cd personal-portfolio
+   npm install
+   # or
+   yarn
    ```
 
-4. **Install dependencies:**
-   Install packages for the root directory.
-
+3. **Dev Server**:
    ```bash
-     yarn
+   npm run dev
    ```
 
-5. **Start the development server:**
-
+4. **Build**:
    ```bash
-    yarn run dev
+   npm run build
    ```
 
-6. **Access the application:**
-   Open a browser and enter the following URL:
+## Contact
 
-   ```bash
-     http://localhost:3000/
-   ```
+Feel free to reach out for collaborations or just to say hi.
+- **GitHub**: [@DanielKinnito](https://github.com/DanielKinnito)
 
-## 🕹️ Usage
-
-### Customize data in the `lib/constants.ts` [folder](https://github.com/DanielKinnito/daniek-mekonnen-portfolio/blob/main/lib/constants.ts)
-
-Eg:
-
-```javascript
-// lib/constants.ts
-const GMAIL_LINK = "YOUR GMAIL HERE";
-const GITHUB_LINK = "YOUR GITHUB USERNAME HERE";
-const INSTAGRAM_LINK = "YOUR INSTAGRAM USERNAME HERE";
-const LINKEDIN_LINK = "YOUR LINKDIN USERNAME HERE";
-const RESUME_LINK = "YOUR RESUME LINK HERE";
-```
-
-## 💻 Technologies Used
-
-- [Next.js](https://nextjs.org/)
-- [React.js](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [@emailjs/browser](https://www.emailjs.com/docs/sdk/browser/)
-- [clsx](https://github.com/lukeed/clsx)
-- [tailwind-merge](https://github.com/dcastil/tailwind-merge)
-- [Prettier](https://prettier.io/)
-
-## 💖 Show Support
-
-Give a ⭐️ if you liked this project!
-
-## Original Creator
-
-<https://github.com/programmer-rahul>
+---
+*Designed & Developed by Daniel Mekonnen.*
