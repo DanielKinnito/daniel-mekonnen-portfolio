@@ -1,33 +1,32 @@
 import Link from "next/link";
-import styles from './NavBar.module.css'; // Adjust the path as necessary
 
 export default function NavBar() {
   return (
     <nav>
-      <ul className="z-10 gap-14 text-xl text-secondary-foreground hidden md:flex">
+      <ul className="z-10 gap-8 text-sm md:text-base text-gray-400 hidden md:flex items-center">
         <li>
-          <Link href="/">
-            <span className={styles.navLink}>Home</span>
+          <Link href="/" className="hover:text-neon-green transition-colors duration-200">
+            Home
           </Link>
         </li>
         <li>
-          <Link href="#about">
-            <span className={styles.navLink}>About</span>
+          <Link href="#about" className="hover:text-neon-green transition-colors duration-200">
+            About
           </Link>
         </li>
         <li>
-          <Link href="#skills">
-            <span className={styles.navLink}>Skills</span>
+          <Link href="#skills" className="hover:text-neon-green transition-colors duration-200">
+            Skills
           </Link>
         </li>
         <li>
-          <Link href="#projects">
-            <span className={styles.navLink}>Projects</span>
+          <Link href="#projects" className="hover:text-neon-green transition-colors duration-200">
+            Projects
           </Link>
         </li>
         <li>
-          <Link href="#contact">
-            <span className={styles.navLink}>Contact</span>
+          <Link href="#contact" className="hover:text-neon-green transition-colors duration-200">
+            Contact
           </Link>
         </li>
       </ul>

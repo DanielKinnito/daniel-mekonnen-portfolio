@@ -16,52 +16,52 @@ const HERO_ASCII = `
 
 export default function Home() {
   return (
-    <div className="px-4 md:px-8 space-y-24 pb-24">
+    <div className="px-4 md:px-8 space-y-20 pb-24">
       {/* Hero Overlay with ASCII */}
       <section className="min-h-[80vh] flex flex-col items-center justify-center relative">
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none scale-150">
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.07] pointer-events-none scale-150">
            <AsciiArt art={HERO_ASCII} />
          </div>
-         <div className="z-10 bg-dark-bg/50 backdrop-blur-sm p-4 border border-neon-green/30 relative group">
-           {/* Decorative corners */}
-           <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-neon-green"></div>
-           <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-neon-green"></div>
-           <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-neon-green"></div>
-           <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-neon-green"></div>
+         <div className="z-10 bg-dark-bg/70 backdrop-blur-sm p-6 border border-neon-green/25 relative group">
+           {/* Decorative corners - minimalist */}
+           <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-neon-green"></div>
+           <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-neon-green"></div>
+           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-neon-green"></div>
+           <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-neon-green"></div>
 
            <HomeSection />
          </div>
          
-         <div className="mt-12 animate-bounce opacity-50 text-xs">
-            SCROLL TO DECRYPT
+         <div className="mt-12 animate-bounce opacity-40 text-xs">
+            SCROLL TO EXPLORE
          </div>
       </section>
 
       <div className="space-y-16">
         {/* Wrapping sections in "Encrypted" style containers */}
         <div className="relative">
-            <div className="absolute -left-4 top-0 text-neon-green/20 font-mono text-6xl -z-10 select-none">01</div>
+            <div className="absolute -left-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">01</div>
             <AboutSection />
         </div>
         
         <SectionSeperatorBorder />
 
         <div className="relative">
-             <div className="absolute -right-4 top-0 text-neon-green/20 font-mono text-6xl -z-10 select-none">02</div>
+             <div className="absolute -right-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">02</div>
              <SkillsSection />
         </div>
 
         <SectionSeperatorBorder />
 
         <div className="relative">
-             <div className="absolute -left-4 top-0 text-neon-green/20 font-mono text-6xl -z-10 select-none">03</div>
+             <div className="absolute -left-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">03</div>
              <ProjectsSection />
         </div>
         
         <SectionSeperatorBorder />
         
         <div className="relative">
-             <div className="absolute -right-4 top-0 text-neon-green/20 font-mono text-6xl -z-10 select-none">04</div>
+             <div className="absolute -right-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">04</div>
              <ContactSection />
         </div>
       </div>

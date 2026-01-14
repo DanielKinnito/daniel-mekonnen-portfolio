@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: 8, 8, 8;
-  --main: 40, 180, 20; /* Muted green */
-  --typewriter: 40, 180, 20;
+  --background: 10, 10, 12;
+  --main: 95, 164, 145; /* Muted sage teal - utilitarian */
+  --typewriter: 95, 164, 145;
   
-  --primary-background: 8, 8, 8;
-  --primary-foreground: 180, 180, 180; /* Dimmer white */
+  --primary-background: 10, 10, 12;
+  --primary-foreground: 160, 160, 165; /* Neutral gray-white */
 
-  --secondary-background: 12, 12, 12;
-  --secondary-foreground: 40, 180, 20;
+  --secondary-background: 18, 18, 22;
+  --secondary-foreground: 95, 164, 145;
 
-  --border: 40, 80, 40; /* Dimmer border */
+  --border: 60, 70, 75; /* Muted slate border */
   
   --font-vt323: 'VT323', monospace;
   --font-share-tech: 'Share Tech Mono', monospace;
@@ -24,15 +24,14 @@
     @apply border-border/20 box-border;
   }
   body {
-    @apply bg-dark-bg font-mono text-[#b4b4b4] overflow-x-hidden selection:bg-neon-green/80 selection:text-black;
-    /* Removed text-shadow for crisper text */
+    @apply bg-dark-bg font-mono text-[#c5c5c5] overflow-x-hidden selection:bg-main/60 selection:text-white;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-tech uppercase tracking-wider text-[#c0c0c0];
+    @apply font-tech uppercase tracking-wide text-[#d0d0d3];
   }
 }
 
-/* CRT Scanline Effect */
+/* CRT Scanline Effect - Updated for utilitarian aesthetic */
 .crt::before {
   content: " ";
   display: block;
@@ -45,7 +44,7 @@
     rgba(18, 16, 16, 0) 50%,
     rgba(0, 0, 0, 0.25) 50%
   ),
-  linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  linear-gradient(90deg, rgba(95, 164, 145, 0.03), rgba(71, 85, 105, 0.02), rgba(100, 116, 139, 0.03));
   background-size: 100% 2px, 3px 100%;
   z-index: 50;
   pointer-events: none;
@@ -90,7 +89,7 @@
   100% { opacity: 0.043285; }
 }
 
-/* Glitch Utilities */
+/* Subtle Glitch - Less Distracting */
 .glitch-text {
   position: relative;
 }
@@ -102,22 +101,22 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #0a0a0a;
+  background: #0a0a0c;
 }
 .glitch-text::before {
-  left: 2px;
-  text-shadow: -1px 0 #bc13fe;
+  left: 1px;
+  text-shadow: -1px 0 rgba(95, 164, 145, 0.5);
   clip-path: inset(0 0 0 0);
-  animation: glitch-1 2s infinite linear alternate-reverse;
+  animation: glitch-1 4s infinite linear alternate-reverse;
 }
 .glitch-text::after {
-  left: -2px;
-  text-shadow: -1px 0 #39ff14;
+  left: -1px;
+  text-shadow: -1px 0 rgba(95, 164, 145, 0.4);
   clip-path: inset(0 0 0 0);
-  animation: glitch-2 3s infinite linear alternate-reverse;
+  animation: glitch-2 5s infinite linear alternate-reverse;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Utilitarian Style */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -125,8 +124,92 @@
   background: #0a0a0a; 
 }
 ::-webkit-scrollbar-thumb {
-  background: #39ff14; 
+  background: rgba(95, 164, 145, 0.5); 
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2cb80d; 
+  background: rgba(95, 164, 145, 0.7); 
+}
+
+/* Thin scrollbar utility */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(95, 164, 145, 0.5);
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(95, 164, 145, 0.7);
+}
+
+/* Blob Animation - Utilitarian Style */
+.blob-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(95, 164, 145, 0.4) 0%,
+    rgba(95, 164, 145, 0.1) 100%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: blob-pulse 6s ease-in-out infinite;
+}
+
+@keyframes blob-pulse {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Carousel Animation - Minimalist */
+.carousel {
+  --duration: 40s;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel .track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scroll var(--duration) linear infinite;
+}
+
+.carousel[data-reverse="true"] .track {
+  animation: scroll var(--duration) linear infinite reverse;
+}
+
+.carousel .card {
+  flex-shrink: 0;
+  width: 100px;
+  height: 80px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% - 1rem)); }
+}
+
+/* Loading Animation */
+@keyframes loading {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(200%); }
 }

@@ -13,10 +13,12 @@ const config: Config = {
         background: "rgba(var(--background))",
         main: "rgba(var(--main))",
         typewriter: "rgba(var(--typewriter))",
-        "neon-green": "#28b414", /* Muted green */
-        "neon-purple": "#8a2be2", /* Muted purple */
-        "dark-bg": "#080808",
+        "neon-green": "#5fa491", /* Muted sage teal */
+        "neon-purple": "#7a6a8f", /* Muted slate violet */
+        "dark-bg": "#0a0a0c",
         "scanline": "rgba(0, 0, 0, 0.5)",
+        "accent": "#5fa491",
+        "accent-dim": "rgba(95, 164, 145, 0.5)",
 
         primary: {
           background: "rgba(var(--primary-background))",
@@ -37,7 +39,7 @@ const config: Config = {
         tech: ["var(--font-share-tech)", "monospace"],
       },
       backgroundImage: {
-        "grid-pattern": "linear-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(57, 255, 20, 0.1) 1px, transparent 1px)",
+        "grid-pattern": "linear-gradient(rgba(95, 164, 145, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(95, 164, 145, 0.08) 1px, transparent 1px)",
       },
       backgroundSize: {
         "grid-pattern": "40px 40px",

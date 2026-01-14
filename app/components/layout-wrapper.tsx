@@ -6,9 +6,11 @@ import HudLayout from "./ui/hud-layout";
 import TerminalOverlay from "./terminal/terminal-overlay";
 
 // Dynamic imports for visual components (client-side only)
-const MatrixRain = dynamic(() => import("./visuals/matrix-rain"), { ssr: false });
-const AsciiNetwork = dynamic(() => import("./visuals/ascii-network"), { ssr: false });
-const SignalWave = dynamic(() => import("./visuals/signal-wave"), { ssr: false });
+const ParticleField = dynamic(() => import("./visuals/particle-field"), { ssr: false });
+const GridAnimation = dynamic(() => import("./visuals/grid-animation"), { ssr: false });
+const DigitalNoise = dynamic(() => import("./visuals/digital-noise"), { ssr: false });
+const ScanningBeam = dynamic(() => import("./visuals/scanning-beam"), { ssr: false });
+const AmbientPulse = dynamic(() => import("./visuals/ambient-pulse"), { ssr: false });
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -30,28 +32,46 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
   return (
     <HudLayout>
-      {/* Left Side Visuals - Desktop Only */}
-      <div className="hidden xl:block absolute left-0 top-0 w-[120px] h-full pointer-events-none z-[5]">
-        <div className="sticky top-0 h-screen flex flex-col">
-            <div className="h-1/2 opacity-30 pointer-events-auto transition-opacity duration-500 hover:opacity-100">
-            <MatrixRain />
-            </div>
-            <div className="h-1/2 opacity-40 pointer-events-auto transition-opacity duration-500 hover:opacity-100">
-            <AsciiNetwork />
-            </div>
+      {/* Ambient Background Layer - Properly positioned behind content */}
+      <div className="fixed inset-0 pointer-events-none z-[-1]">
+        {/* Full screen ambient pulse */}
+        <div className="absolute inset-0">
+          <AmbientPulse />
+        </div>
+        
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <GridAnimation />
+        </div>
+        
+        {/* Floating particles */}
+        <div className="absolute inset-0 opacity-40">
+          <ParticleField />
+        </div>
+        
+        {/* Digital noise texture */}
+        <div className="absolute inset-0 opacity-20">
+          <DigitalNoise />
         </div>
       </div>
 
-      {/* Right Side Visuals - Desktop Only */}
-      <div className="hidden xl:block absolute right-0 top-0 w-[120px] h-full pointer-events-none z-[5]">
+      {/* Left Side Visual - Desktop Only */}
+      <div className="hidden xl:block absolute left-0 top-0 w-[100px] h-full pointer-events-none z-[5]">
+        <div className="sticky top-0 h-screen">
+          <ScanningBeam />
+        </div>
+      </div>
+
+      {/* Right Side Visual - Desktop Only */}
+      <div className="hidden xl:block absolute right-0 top-0 w-[100px] h-full pointer-events-none z-[5]">
          <div className="sticky top-0 h-screen">
-            <SignalWave />
+            <ScanningBeam />
          </div>
       </div>
 
-      {/* Bottom Wave - Large Desktop Only */}
-      <div className="hidden 2xl:block fixed bottom-0 left-[120px] right-[120px] h-[60px] pointer-events-none z-[5] opacity-20">
-        <SignalWave />
+      {/* Bottom Section Visual - Large Desktop Only */}
+      <div className="hidden 2xl:block fixed bottom-0 left-[100px] right-[100px] h-[80px] pointer-events-none z-[5] opacity-50">
+        <ParticleField />
       </div>
 
       {children}
@@ -60,11 +80,11 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       {/* Terminal Trigger Button - Always visible */}
       <button 
         onClick={() => setIsTerminalOpen(true)}
-        className="fixed bottom-4 right-4 z-50 bg-black/90 border border-neon-green/50 hover:border-neon-green px-3 py-2 rounded shadow-[0_0_8px_rgba(40,180,20,0.3)] hover:shadow-[0_0_12px_rgba(40,180,20,0.5)] transition-all group flex items-center gap-2"
+        className="fixed bottom-4 right-4 z-50 bg-dark-bg/90 border border-main/40 hover:border-main px-3 py-2 rounded shadow-[0_0_6px_rgba(95,164,145,0.2)] hover:shadow-[0_0_10px_rgba(95,164,145,0.35)] transition-all group flex items-center gap-2"
         title="Open Terminal (or press `)"
       >
-        <span className="text-neon-green text-sm font-mono">&gt;_</span>
-        <span className="text-[10px] text-gray-500 group-hover:text-gray-400 hidden sm:inline">TERMINAL</span>
+        <span className="text-main text-sm font-mono">&gt;_</span>
+        <span className="text-[10px] text-gray-500 group-hover:text-main/80 hidden sm:inline">TERMINAL</span>
       </button>
     </HudLayout>
   );

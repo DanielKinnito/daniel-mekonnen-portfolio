@@ -2,30 +2,32 @@
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import './button.css'; // Import the CSS file here
 
 interface IconButtonProps {
   type?: "primary";
   text: string;
   icon?: string;
+  onClick?: () => void;
 }
 
 const defaultClasses =
-  "border-2 text-base px-4 py-3 md:text-xl 2xl:text-2xl rounded-md text-primary hover:opacity-90 flex items-center transition-all hover:scale-105 hover:translate-x-1 cursor-pointer gap-1 min-h-[44px]";
+  "border border-neon-green/40 text-gray-300 text-sm px-4 py-2.5 md:text-base rounded hover:bg-neon-green/10 hover:text-neon-green hover:border-neon-green transition-all duration-200 flex items-center cursor-pointer gap-2 min-h-[44px]";
 
-const primaryClasses = "button-primary";
+const primaryClasses = "bg-neon-green/10 text-neon-green border-neon-green/50";
 
 export default function Button({
   type = "primary",
   text,
   icon = "",
+  onClick,
 }: IconButtonProps) {
   return (
-    <div
+    <button
       className={cn(
         defaultClasses,
-        primaryClasses
+        type === "primary" && primaryClasses
       )}
+      onClick={onClick}
     >
       <span>{text}</span>
       {icon.trim() && (
@@ -34,9 +36,9 @@ export default function Button({
           width={22}
           height={22}
           alt="button-icon"
-          className="w-4 2xl:w-6"
+          className="w-4 opacity-70"
         />
       )}
-    </div>
+    </button>
   );
 }
