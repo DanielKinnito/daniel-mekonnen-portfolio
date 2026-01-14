@@ -252,7 +252,7 @@ export const processCommand = (input: string): CommandResponse => {
         type: 'quote',
         output: (
           <div className="flex flex-col gap-2 max-w-2xl italic">
-            <div className="text-2xl opacity-50">"</div>
+            <div className="text-2xl opacity-50">&quot;</div>
             <div className="text-lg leading-relaxed pl-4">{quote.text}</div>
             <div className="text-right text-sm opacity-70">— {quote.author}</div>
           </div>
@@ -402,7 +402,7 @@ export const processCommand = (input: string): CommandResponse => {
         output: (
           <div className="flex flex-col gap-1">
             <span className="text-red-400">
-              command not found: {command}. Type "help" for assistance.
+              command not found: {command}. Type &quot;help&quot; for assistance.
             </span>
             <span className="text-xs opacity-50 mt-1">
               [Tip: Available commands include whoami, weather, quote, and more!]
