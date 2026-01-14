@@ -14,6 +14,16 @@ const AmbientPulse = dynamic(() => import("./visuals/ambient-pulse"), { ssr: fal
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isPageVisible, setIsPageVisible] = useState(true);
+
+  // Pause animations when page is not visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsPageVisible(!document.hidden);
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
 
   // Toggle terminal with tilde key
   useEffect(() => {
@@ -32,8 +42,9 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
   return (
     <HudLayout>
-      {/* Ambient Background Layer - Properly positioned behind content */}
-      <div className="fixed inset-0 pointer-events-none z-[-1]">
+      {/* Ambient Background Layer - Only render when visible */}
+      {isPageVisible && (
+        <div className="fixed inset-0 pointer-events-none z-[-1]">
         {/* Full screen ambient pulse */}
         <div className="absolute inset-0">
           <AmbientPulse />
@@ -54,6 +65,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
           <DigitalNoise />
         </div>
       </div>
+      )}
 
       {/* Left Side Visual - Desktop Only */}
       <div className="hidden xl:block absolute left-0 top-0 w-[100px] h-full pointer-events-none z-[5]">

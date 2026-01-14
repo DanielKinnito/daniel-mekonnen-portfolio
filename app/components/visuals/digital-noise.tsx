@@ -33,6 +33,17 @@ export default function DigitalNoise() {
       noiseData[i + 3] = Math.random() * 30; // Alpha - very subtle
     }
 
+    // Pre-generate noise pattern canvas ONCE
+    const patternCanvas = document.createElement('canvas');
+    patternCanvas.width = noiseSize;
+    patternCanvas.height = noiseSize;
+    const patternCtx = patternCanvas.getContext('2d');
+    if (patternCtx) {
+      const imageData = patternCtx.createImageData(noiseSize, noiseSize);
+      imageData.data.set(noiseData);
+      patternCtx.putImageData(imageData, 0, 0);
+    }
+
     const draw = () => {
       // Very subtle clear with fade
       ctx.fillStyle = 'rgba(10, 12, 14, 0.02)';
@@ -47,36 +58,12 @@ export default function DigitalNoise() {
         const size = Math.random() * 100 + 50;
 
         ctx.globalAlpha = intensity * Math.random();
-        ctx.drawImage(
-          createNoisePattern(ctx, noiseData, noiseSize),
-          x,
-          y,
-          size,
-          size
-        );
+        ctx.drawImage(patternCanvas, x, y, size, size);
       }
 
       ctx.globalAlpha = 1;
 
       animationRef.current = requestAnimationFrame(draw);
-    };
-
-    const createNoisePattern = (
-      context: CanvasRenderingContext2D,
-      data: Uint8ClampedArray,
-      size: number
-    ): HTMLCanvasElement => {
-      const patternCanvas = document.createElement('canvas');
-      patternCanvas.width = size;
-      patternCanvas.height = size;
-      const patternCtx = patternCanvas.getContext('2d');
-      if (!patternCtx) return patternCanvas;
-
-      const imageData = patternCtx.createImageData(size, size);
-      imageData.data.set(data);
-      patternCtx.putImageData(imageData, 0, 0);
-
-      return patternCanvas;
     };
 
     draw();
