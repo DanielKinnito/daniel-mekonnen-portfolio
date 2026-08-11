@@ -67,15 +67,15 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       </div>
       )}
 
-      {/* Left Side Visual - Desktop Only */}
-      <div className="hidden xl:block absolute left-0 top-0 w-[100px] h-full pointer-events-none z-[5]">
+      {/* Left Side Visual - Very Wide Screens Only */}
+      <div className="hidden 2xl:block absolute left-0 top-0 w-[72px] h-full pointer-events-none z-[5] opacity-70">
         <div className="sticky top-0 h-screen">
           <ScanningBeam />
         </div>
       </div>
 
-      {/* Right Side Visual - Desktop Only */}
-      <div className="hidden xl:block absolute right-0 top-0 w-[100px] h-full pointer-events-none z-[5]">
+      {/* Right Side Visual - Very Wide Screens Only */}
+      <div className="hidden 2xl:block absolute right-0 top-0 w-[72px] h-full pointer-events-none z-[5] opacity-70">
          <div className="sticky top-0 h-screen">
             <ScanningBeam />
          </div>

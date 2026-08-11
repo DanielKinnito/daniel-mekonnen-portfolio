@@ -1,3 +1,3 @@
 export default function SectionSeperatorBorder() {
-  return <div className="border-t border-neon-green/20 w-full max-w-4xl mx-auto" />;
+  return <div className="mx-auto h-px w-full max-w-5xl bg-gradient-to-r from-transparent via-white/10 to-transparent" />;
 }

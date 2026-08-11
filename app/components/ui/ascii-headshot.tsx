@@ -19,7 +19,6 @@ export default function AsciiHeadshot({
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
   const timeRef = useRef(0);
-  const mousePosRef = useRef({ x: -1, y: -1 });
   const asciiGridRef = useRef<string[][]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -87,8 +86,6 @@ export default function AsciiHeadshot({
       
       const cellWidth = canvas.width / width;
       const cellHeight = canvas.height / height;
-      const mouseX = mousePosRef.current.x;
-      const mouseY = mousePosRef.current.y;
 
       // Clear canvas
       ctx.fillStyle = 'rgba(10, 12, 14, 1)';
@@ -100,6 +97,9 @@ export default function AsciiHeadshot({
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
+      const waveX = Math.sin(timeRef.current * 1.2) * 1.2;
+      const waveY = Math.cos(timeRef.current * 1.05) * 0.8;
+
       // Draw ASCII characters
       for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
@@ -107,46 +107,16 @@ export default function AsciiHeadshot({
           const px = x * cellWidth + cellWidth / 2;
           const py = y * cellHeight + cellHeight / 2;
 
-          // Calculate mouse influence
-          let opacity = 0.5;
-          let brightness = 0;
+          const breathe = Math.sin(timeRef.current * 1.6 + x * 0.12 + y * 0.1) * 0.08;
+          const driftX = waveX + Math.sin((y + timeRef.current) * 0.16) * 0.6;
+          const driftY = waveY + Math.cos((x + timeRef.current) * 0.14) * 0.5;
 
-          if (mouseX >= 0) {
-            const dx = x - mouseX;
-            const dy = y - mouseY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const maxDist = 8;
+          const opacity = Math.max(0.18, Math.min(1, 0.34 + breathe));
+          ctx.fillStyle = `rgba(95, 164, 145, ${opacity})`;
+          ctx.shadowColor = 'rgba(95, 164, 145, 0.12)';
+          ctx.shadowBlur = 4;
 
-            if (dist < maxDist) {
-              const influence = 1 - dist / maxDist;
-              opacity = 0.3 + influence * 0.7;
-              brightness = influence;
-            }
-          }
-
-          // Subtle breathing effect when not interacting
-          if (mouseX < 0) {
-            const breathe = Math.sin(timeRef.current * 2 + x * 0.1 + y * 0.1) * 0.1;
-            opacity += breathe;
-          }
-
-          opacity = Math.max(0.2, Math.min(1, opacity));
-
-          // Set color with brightness
-          const r = Math.floor(95 + brightness * 60);
-          const g = Math.floor(164 + brightness * 60);
-          const b = Math.floor(145 + brightness * 60);
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
-
-          // Add glow effect for bright areas
-          if (brightness > 0.3) {
-            ctx.shadowColor = `rgba(95, 164, 145, ${brightness * 0.5})`;
-            ctx.shadowBlur = brightness * 8;
-          } else {
-            ctx.shadowBlur = 0;
-          }
-
-          ctx.fillText(char, px, py);
+          ctx.fillText(char, px + driftX, py + driftY);
         }
       }
 
@@ -164,24 +134,6 @@ export default function AsciiHeadshot({
     };
   }, [isLoaded, width, height]);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const cellWidth = canvas.width / width;
-    const cellHeight = canvas.height / height;
-
-    const x = Math.floor((e.clientX - rect.left) / cellWidth);
-    const y = Math.floor((e.clientY - rect.top) / cellHeight);
-
-    mousePosRef.current = { x, y };
-  };
-
-  const handleMouseLeave = () => {
-    mousePosRef.current = { x: -1, y: -1 };
-  };
-
   if (!isLoaded) {
     return (
       <div className={`flex items-center justify-center ${className}`}>
@@ -194,8 +146,6 @@ export default function AsciiHeadshot({
     <div 
       ref={containerRef}
       className={`relative overflow-hidden ${className}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
     >
       <canvas 
         ref={canvasRef} 

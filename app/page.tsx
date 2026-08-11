@@ -16,53 +16,62 @@ const HERO_ASCII = `
 
 export default function Home() {
   return (
-    <div className="px-4 md:px-8 space-y-20 pb-24">
+    <div className="mx-auto flex w-full max-w-7xl flex-col gap-16 px-4 pb-24 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
       {/* Hero Overlay with ASCII */}
-      <section className="min-h-[80vh] flex flex-col items-center justify-center relative">
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.07] pointer-events-none scale-150">
-           <AsciiArt art={HERO_ASCII} />
+      <section className="section-shell relative overflow-hidden lg:mt-2 xl:mt-4">
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(95,164,145,0.16),transparent_32%),radial-gradient(circle_at_top_right,rgba(122,106,143,0.1),transparent_28%)]" />
+         <div className="absolute right-0 top-0 hidden translate-x-1/4 -translate-y-1/4 opacity-[0.06] lg:block">
+           <AsciiArt art={HERO_ASCII} className="scale-125" />
          </div>
-         <div className="z-10 bg-dark-bg/70 backdrop-blur-sm p-6 border border-neon-green/25 relative group">
-           {/* Decorative corners - minimalist */}
-           <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-neon-green"></div>
-           <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-neon-green"></div>
-           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-neon-green"></div>
-           <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-neon-green"></div>
+         <div className="relative space-y-5 xl:space-y-6 2xl:space-y-7">
+           <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.38em] text-slate-400 sm:hidden">
+             <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1">Selected Work</span>
+             <span>Polished interfaces, reliable systems, and calm motion.</span>
+           </div>
 
            <HomeSection />
          </div>
-         
-         <div className="mt-12 animate-bounce opacity-40 text-xs">
-            SCROLL TO EXPLORE
+
+         <div className="mt-8 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-slate-400">
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <span>Scroll to explore</span>
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
          </div>
       </section>
 
-      <div className="space-y-16">
-        {/* Wrapping sections in "Encrypted" style containers */}
+      <div className="space-y-10">
         <div className="relative">
-            <div className="absolute -left-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">01</div>
-            <AboutSection />
+            <div className="absolute -left-2 top-4 hidden text-white/5 font-mono text-6xl -z-10 select-none lg:block">01</div>
+            <div className="section-shell">
+              <AboutSection />
+            </div>
         </div>
         
         <SectionSeperatorBorder />
 
         <div className="relative">
-             <div className="absolute -right-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">02</div>
-             <SkillsSection />
+             <div className="absolute -right-2 top-4 hidden text-white/5 font-mono text-6xl -z-10 select-none lg:block">02</div>
+             <div className="section-shell">
+               <SkillsSection />
+             </div>
         </div>
 
         <SectionSeperatorBorder />
 
         <div className="relative">
-             <div className="absolute -left-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">03</div>
-             <ProjectsSection />
+             <div className="absolute -left-2 top-4 hidden text-white/5 font-mono text-6xl -z-10 select-none lg:block">03</div>
+             <div className="section-shell">
+               <ProjectsSection />
+             </div>
         </div>
         
         <SectionSeperatorBorder />
         
         <div className="relative">
-             <div className="absolute -right-4 top-0 text-neon-green/15 font-mono text-5xl -z-10 select-none">04</div>
-             <ContactSection />
+             <div className="absolute -right-2 top-4 hidden text-white/5 font-mono text-6xl -z-10 select-none lg:block">04</div>
+             <div className="section-shell">
+               <ContactSection />
+             </div>
         </div>
       </div>
     </div>

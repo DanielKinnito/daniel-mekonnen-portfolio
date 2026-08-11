@@ -30,7 +30,7 @@ export default function FormInput({
         value={value}
         id={htmlFor}
         onChange={onChange}
-        className="w-full rounded border border-neon-green/30 bg-dark-bg p-2.5 text-sm text-gray-300 outline-none focus:border-neon-green/60 focus:ring-1 focus:ring-neon-green/30 md:text-base mt-1"
+        className="mt-1 w-full rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-main/45 focus:ring-1 focus:ring-main/20 md:text-base"
       />
     </div>
   );

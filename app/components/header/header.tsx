@@ -6,8 +6,8 @@ import NavBar from "./nav-bar";
 
 export default function Header() {
   return (
-    <header>
-      <div className="flex items-center justify-between p-2 md:justify-center md:gap-8">
+    <header className="sticky top-4 z-40 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="glass-panel-strong flex items-center justify-between rounded-full px-4 py-3 md:justify-center md:gap-8 md:px-6">
         {/* navigation links  */}
         <NavBar />
 
@@ -15,7 +15,7 @@ export default function Header() {
           <BarIcon />
         </div>
 
-        <div className="absolute -top-40 -z-10 xl:-top-48 xl:left-1/3">
+        <div className="absolute -top-28 left-1/2 -z-10 hidden -translate-x-1/2 xl:block">
           <CircularLightEffect />
         </div>
       </div>

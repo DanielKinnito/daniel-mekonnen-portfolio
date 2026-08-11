@@ -23,7 +23,7 @@ export default function ContactForm() {
   const [isCooldown, setIsCooldown] = useState(false);
 
   const handleSendEmail = async (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    event: React.MouseEvent<HTMLElement>,
   ) => {
     event.preventDefault();
 
@@ -66,7 +66,7 @@ export default function ContactForm() {
 
   return (
     <form className="w-full xl:w-5/12">
-      <div className="rounded-md bg-secondary-background p-2 shadow-md md:p-3">
+      <div className="glass-panel-strong rounded-[1.75rem] p-4 md:p-5">
         <div className="flex flex-col gap-4">
           <div>
             <FormInput
@@ -117,8 +117,13 @@ export default function ContactForm() {
             </p>
           </div>
 
-          <div className="self-center" onClick={handleSendEmail}>
-            <IconButton text="Send" icon="/svg/send-message.svg" />
+          <div className="self-center">
+            <IconButton
+              text={isCooldown ? "Sent" : "Send"}
+              icon="/svg/send-message.svg"
+              onClick={handleSendEmail}
+              buttonType="button"
+            />
           </div>
         </div>
       </div>
