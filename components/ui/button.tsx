@@ -2,41 +2,53 @@
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import './button.css'; // Import the CSS file here
+import { motion } from "framer-motion";
+import { spring } from "@/lib/animation";
 
-interface IconButtonProps {
-  type?: "primary";
+interface ButtonProps {
+  variant?: "primary" | "secondary" | "outline";
   text: string;
   icon?: string;
+  className?: string;
+  onClick?: () => void;
 }
 
-const defaultClasses =
-  "border-2 text-base px-4 py-3 md:text-xl 2xl:text-2xl rounded-md text-primary hover:opacity-90 flex items-center transition-all hover:scale-105 hover:translate-x-1 cursor-pointer gap-1 min-h-[44px]";
-
-const primaryClasses = "button-primary";
-
 export default function Button({
-  type = "primary",
+  variant = "primary",
   text,
   icon = "",
-}: IconButtonProps) {
+  className = "",
+  onClick,
+}: ButtonProps) {
+  const baseClasses =
+    "inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all select-none cursor-pointer";
+
+  const variantClasses = {
+    primary:
+      "bg-accent hover:bg-accent/90 text-white border border-accent shadow-sm hover:shadow active:scale-[0.98]",
+    secondary:
+      "bg-card hover:bg-surface text-primary border border-border hover:border-accent/40 active:scale-[0.98]",
+    outline:
+      "bg-transparent hover:bg-surface text-primary border border-border hover:border-accent/40 active:scale-[0.98]",
+  };
+
   return (
-    <div
-      className={cn(
-        defaultClasses,
-        primaryClasses
-      )}
+    <motion.button
+      onClick={onClick}
+      className={cn(baseClasses, variantClasses[variant], className)}
+      whileTap={{ scale: 0.98 }}
+      transition={spring}
     >
       <span>{text}</span>
       {icon.trim() && (
         <Image
           src={icon}
-          width={22}
-          height={22}
-          alt="button-icon"
-          className="w-4 2xl:w-6"
+          width={16}
+          height={16}
+          alt=""
+          className="w-4 h-4 opacity-90"
         />
       )}
-    </div>
+    </motion.button>
   );
 }

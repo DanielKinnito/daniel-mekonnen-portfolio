@@ -5,21 +5,34 @@ import { ChangeEvent } from "react";
 interface FormTextAreaProps {
   value: string;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  label?: string;
+  htmlFor?: string;
+  placeholder?: string;
 }
 
-export default function FormTextArea({ value, onChange }: FormTextAreaProps) {
+export default function FormTextArea({
+  value,
+  onChange,
+  label = "Message",
+  htmlFor = "message",
+  placeholder = "Write your message here...",
+}: FormTextAreaProps) {
   return (
-    <div>
-      <label htmlFor="message" className="text-base md:text-xl text-primary-foreground 2xl:text-2xl">
-        Message
+    <div className="space-y-1.5">
+      <label
+        htmlFor={htmlFor}
+        className="block text-xs font-mono font-medium text-muted uppercase tracking-wider"
+      >
+        {label}
       </label>
       <textarea
-        name=""
-        id="message"
-        className="block h-36 w-full rounded-md border bg-transparent p-1 text-primary-foreground outline-none focus:border-main md:text-xl"
+        id={htmlFor}
+        rows={4}
         value={value}
         onChange={onChange}
-      ></textarea>
+        placeholder={placeholder}
+        className="w-full rounded-lg border border-border bg-surface/50 px-3 py-2 text-sm text-primary placeholder:text-muted/60 transition-all outline-none focus:border-accent focus:ring-1 focus:ring-accent/40 resize-none"
+      />
     </div>
   );
 }

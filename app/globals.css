@@ -3,31 +3,60 @@
 @tailwind utilities;
 
 :root {
-  --background: 13, 18, 36;
-  --main: 139, 92, 246;
-  --typewriter: 34, 197, 94;
+  --background: 18, 19, 22;
+  --card: 25, 27, 32;
+  --surface: 34, 37, 44;
+  --border: 45, 49, 58;
 
-  --primary-background: ;
-  --primary-foreground: 244, 244, 245;
+  --primary: 242, 242, 242;
+  --primary-foreground: 242, 242, 242;
 
-  --secondary-background: 17, 24, 39;
+  --secondary: 161, 161, 170;
   --secondary-foreground: 161, 161, 170;
 
-  --border: 55, 65, 81;
+  --muted: 113, 113, 122;
+
+  --accent: 255, 107, 53;
+  --accent-hover: 245, 78, 0;
+  --highlighter: 255, 107, 53, 0.18;
 }
 
-:root.light {
-  --background: 248, 250, 252;
-  --main: 124, 58, 237;
-  --typewriter: 22, 163, 74;
+:root.light, .light {
+  --background: 248, 247, 242;
+  --card: 255, 255, 255;
+  --surface: 241, 239, 234;
+  --border: 230, 228, 220;
 
-  --primary-background: 255, 255, 255;
-  --primary-foreground: 30, 41, 59;
+  --primary: 28, 25, 23;
+  --primary-foreground: 28, 25, 23;
 
-  --secondary-background: 241, 245, 249;
-  --secondary-foreground: 71, 85, 105;
+  --secondary: 87, 83, 78;
+  --secondary-foreground: 87, 83, 78;
 
-  --border: 203, 213, 225;
+  --muted: 120, 113, 108;
+
+  --accent: 245, 78, 0;
+  --accent-hover: 220, 68, 0;
+  --highlighter: 254, 215, 170, 0.45;
+}
+
+:root.dark, .dark {
+  --background: 18, 19, 22;
+  --card: 25, 27, 32;
+  --surface: 34, 37, 44;
+  --border: 45, 49, 58;
+
+  --primary: 242, 242, 242;
+  --primary-foreground: 242, 242, 242;
+
+  --secondary: 161, 161, 170;
+  --secondary-foreground: 161, 161, 170;
+
+  --muted: 113, 113, 122;
+
+  --accent: 255, 107, 53;
+  --accent-hover: 245, 78, 0;
+  --highlighter: 255, 107, 53, 0.18;
 }
 
 @layer base {
@@ -35,7 +64,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background font-primary text-primary-foreground transition-colors duration-300;
+    @apply bg-background font-primary text-primary antialiased transition-colors duration-200;
   }
 }
 
@@ -43,103 +72,21 @@
   scroll-behavior: smooth;
 }
 
-/* Modern smooth transitions */
+/* Specific targeted transitions instead of transition: all */
 a, button {
-  transition: all 0.2s ease-in-out;
+  transition-property: color, background-color, border-color, transform, opacity;
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Improved focus states for accessibility */
+/* PostHog tactile focus states */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid rgba(var(--main));
+  outline: 2px solid rgba(var(--accent));
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-.typewriter-text {
-  font-weight: 600;
-  min-width: 280px;
-  color: #fff;
-}
-
-.typewriter-text span {
-  position: relative;
-}
-
-.typewriter-text span::before {
-  content: "Web Developer";
-  color: rgba(var(--typewriter));
-  animation: words 20s infinite;
-}
-
-.typewriter-text span::after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  background-color: rgba(var(--background));
-  border-left: 2px solid rgba(var(--typewriter));
-  right: -8px;
-  animation:
-    cursor 0.8s infinite,
-    typing 20s steps(14) infinite;
-}
-
-@keyframes cursor {
-  to {
-    border-left: 2px solid rgba(var(--typewriter));
-  }
-}
-
-@keyframes words {
-  0%,
-  20% {
-    content: "Mobile App Developer";
-  }
-  21%,
-  40% {
-    content: "Full Stack Developer";
-  }
-  41%,
-  60% {
-    content: "Competitive Programmer";
-  }
-  61%,
-  80% {
-    content: "Backend Specialist";
-  }
-  81%,
-  100% {
-    content: "Web Developer";
-  }
-}
-
-@keyframes typing {
-  10%,
-  15%,
-  30%,
-  35%,
-  50%,
-  55%,
-  70%,
-  75%,
-  90%,
-  95% {
-    width: 0;
-  }
-  5%,
-  20%,
-  25%,
-  40%,
-  45%,
-  60%,
-  65%,
-  80%,
-  85% {
-    width: calc(100% + 8px);
-  }
-}
-
-/* to remove default scroll bar  */
-
+/* Clean scrollbar removal */
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -148,111 +95,29 @@ a:focus-visible, button:focus-visible {
   display: none;
 }
 
-/* infinite carousel  */
-.carousel {
-  --card-width: 80px;
-  --card-height: 80px;
-
-  width: 100%;
-  height: calc(var(--card-height));
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+/* PostHog tactile glass header */
+.appHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px) saturate(140%);
+  background-color: rgba(var(--background), 0.85);
+  border-bottom: 1px solid rgba(var(--border), 0.8);
 }
 
-.carousel .track {
-  width: 100%;
-  height: 100%;
-  min-width: calc(var(--card-width) * var(--card-items));
-  display: flex;
-  position: relative;
+/* PostHog highlighter pill wash */
+.highlighter-wash {
+  background-color: rgba(var(--highlighter));
+  border-radius: 4px;
+  padding: 0 4px;
 }
 
-.carousel .track .card {
-  width: var(--card-width);
-  height: var(--card-height);
-  position: absolute;
-
-  transition: filter 0.5s;
-  animation: move 10s linear infinite;
-  animation-delay: calc((10s / var(--card-items)) * (var(--card-index) * -1));
-}
-
-@keyframes move {
-  0% {
-    left: 100%;
-  }
-  100% {
-    left: calc(var(--card-width) * -1);
-  }
-}
-
-.carousel:hover .card {
-  animation-play-state: paused !important;
-  filter: grayscale(1);
-}
-.carousel .card:hover {
-  filter: grayscale(0);
-}
-
-.carousel[data-reverse="true"] .card {
-  animation: reverseMove 10s linear infinite;
-  animation-delay: calc((10s / var(--card-items)) * (var(--card-index) * -1));
-}
-@keyframes reverseMove {
-  from {
-    left: calc(var(--card-width) * -1);
-  }
-  to {
-    left: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .carousel {
-    --card-width: 150px;
-    --card-height: 150px;
-  }
-}
-@media (min-width: 1024px) {
-  .carousel {
-    --card-width: 130px;
-    --card-height: 130px;
-  }
-}
-
-/* blob animation  */
-.blob {
-  background: linear-gradient(
-    64deg,
-    rgba(var(--main)) 23%,
-    rgba(var(--main)) 23%,
-    rgba(var(--typewriter)) 80%
-  );
-
-  border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%;
-  transform: rotate(0deg);
-  will-change: border-radius, transform;
-
-  animation:
-    blob 2s ease-in infinite,
-    spin 9s alternate-reverse infinite;
-}
-
-@keyframes blob {
-  0%,
-  100% {
-    border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%;
-  }
-  50% {
-    border-radius: 72% 28% 50% 50% / 55% 26% 74% 45%;
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,17 +1,24 @@
-import SectionHeading from "../ui/section-heading";
 import Projects from "./projects";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects">
-      <div className="flex flex-col space-y-6 py-8 2xl:px-24">
-        <div>
-          <SectionHeading text="Projects" />
+    <section id="projects" className="py-12 sm:py-16">
+      {/* Section Header */}
+      <div className="mb-8 space-y-2">
+        <div className="flex items-center gap-2">
+          <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold">
+            [02] Production Systems
+          </span>
         </div>
-
-        {/* all projects container  */}
-        <Projects />
+        <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+          Featured Projects
+        </h2>
+        <p className="max-w-2xl text-base text-secondary">
+          Selected open-source engines, automated bot pipelines, and full-stack applications with real architecture highlights.
+        </p>
       </div>
+
+      <Projects />
     </section>
   );
 }

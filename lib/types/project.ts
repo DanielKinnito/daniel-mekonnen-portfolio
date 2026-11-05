@@ -1,11 +1,16 @@
 export type Project = {
   name: string;
+  tagline: string;
   description: string;
-  imageUrl: string;
+  period?: string;
+  imageUrl?: string;
+  tags: string[];
+  bullets: string[];
   urls: {
-    repo: string;
-    liveDemo: string;
+    repo?: string;
+    liveDemo?: string;
   };
+  featured?: boolean;
 };
 
 export type Projects = Project[];

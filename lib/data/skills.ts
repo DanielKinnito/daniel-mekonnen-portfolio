@@ -1,35 +1,61 @@
-import { Skills } from "../types/skill";
+export interface SkillItem {
+  name: string;
+  category: string;
+  icon?: string;
+}
 
-const SKILLS: Skills = {
-  frontend: [
-    { name: "Flutter", imageUrl: "/skills/flutter.svg" },
-    { name: "Python", imageUrl: "/skills/python.svg" },
-    { name: "Java", imageUrl: "/skills/java.svg" },
-    { name: "C++", imageUrl: "/skills/cplusplus.svg" },
-    { name: "HTML", imageUrl: "/skills/html.svg" },
-    { name: "CSS", imageUrl: "/skills/css.svg" },
-    { name: "JavaScript", imageUrl: "/skills/javascript.svg" },
-    { name: "TypeScript", imageUrl: "/skills/typescript.svg" },
-    { name: "React", imageUrl: "/skills/react.svg" },
-    { name: "Tailwind", imageUrl: "/skills/tailwindcss.svg" },
-    { name: "Next.js", imageUrl: "/skills/nextjs.svg" },
-  ],
-  backend: [
-    { name: "Node.js", imageUrl: "/skills/nodejs.svg" },
-    { name: "Django", imageUrl: "/skills/django.svg" },
-    { name: "Express.js", imageUrl: "/skills/expressjs.svg" },
-    { name: "MongoDB", imageUrl: "/skills/mongodb.svg" },
-    { name: "Firebase", imageUrl: "/skills/firebase.svg" },
-  ],
-  tools: [
-    { name: "Git", imageUrl: "/skills/git.svg" },
-    { name: "Docker", imageUrl: "/skills/docker.svg" },
-    { name: "GitHub", imageUrl: "/skills/github.svg" },
-    { name: "Postman", imageUrl: "/skills/postman.svg" },
-    { name: "VS Code", imageUrl: "/skills/vscode.svg" },
-    { name: "Vercel", imageUrl: "/skills/vercel.svg" },
-    { name: "Render", imageUrl: "/skills/render.svg" },
-  ],
-};
+export const SKILL_CATEGORIES = [
+  {
+    title: "Programming Languages",
+    skills: [
+      { name: "Python", icon: "/skills/python.svg" },
+      { name: "TypeScript", icon: "/skills/typescript.svg" },
+      { name: "JavaScript", icon: "/skills/javascript.svg" },
+      { name: "Go" },
+      { name: "Dart", icon: "/skills/flutter.svg" },
+      { name: "SQL" },
+      { name: "C++", icon: "/skills/cplusplus.svg" },
+      { name: "Java", icon: "/skills/java.svg" },
+      { name: "PHP" },
+    ],
+  },
+  {
+    title: "Frameworks & Backend",
+    skills: [
+      { name: "Django", icon: "/skills/django.svg" },
+      { name: "FastAPI" },
+      { name: "Node.js", icon: "/skills/nodejs.svg" },
+      { name: "Express.js", icon: "/skills/expressjs.svg" },
+      { name: "Next.js", icon: "/skills/nextjs.svg" },
+      { name: "React", icon: "/skills/react.svg" },
+      { name: "Flutter", icon: "/skills/flutter.svg" },
+      { name: "Tailwind CSS", icon: "/skills/tailwindcss.svg" },
+    ],
+  },
+  {
+    title: "Database & Cloud",
+    skills: [
+      { name: "PostgreSQL" },
+      { name: "Supabase" },
+      { name: "MongoDB", icon: "/skills/mongodb.svg" },
+      { name: "Docker", icon: "/skills/docker.svg" },
+      { name: "Linux" },
+      { name: "Firebase", icon: "/skills/firebase.svg" },
+      { name: "MySQL" },
+    ],
+  },
+  {
+    title: "Architecture & Core Practices",
+    skills: [
+      { name: "MCP (Model Context Protocol)" },
+      { name: "RAG & AI Pipelines" },
+      { name: "Data Structures & Algorithms" },
+      { name: "Test-Driven Development (TDD)" },
+      { name: "Clean Architecture" },
+      { name: "REST APIs" },
+      { name: "Git & CI/CD", icon: "/skills/git.svg" },
+    ],
+  },
+];
 
-export default SKILLS;
+export default SKILL_CATEGORIES;

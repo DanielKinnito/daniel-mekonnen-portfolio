@@ -11,24 +11,36 @@ const config: Config = {
     extend: {
       colors: {
         background: "rgba(var(--background))",
-        main: "rgba(var(--main))",
-        typewriter: "rgba(var(--typewriter))",
-
+        card: "rgba(var(--card))",
+        surface: "rgba(var(--surface))",
+        border: "rgba(var(--border))",
+        main: "rgba(var(--accent))",
+        accent: {
+          DEFAULT: "rgba(var(--accent))",
+          hover: "rgba(var(--accent-hover))",
+        },
+        highlighter: "rgba(var(--highlighter))",
         primary: {
-          background: "rgba(var(--primary-backgrond))",
+          DEFAULT: "rgba(var(--primary))",
           foreground: "rgba(var(--primary-foreground))",
         },
         secondary: {
-          background: "rgba(var(--secondary-background))",
+          DEFAULT: "rgba(var(--secondary))",
+          background: "rgba(var(--card))",
           foreground: "rgba(var(--secondary-foreground))",
         },
-
-        border: "rgba(var(--border))",
+        muted: "rgba(var(--muted))",
       },
       fontFamily: {
         primary: "var(--font-primary)",
         secondary: "var(--font-secondary)",
         heading: "var(--font-heading)",
+        mono: ["Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+      },
+      borderRadius: {
+        DEFAULT: "8px",
+        card: "12px",
+        panel: "16px",
       },
     },
   },

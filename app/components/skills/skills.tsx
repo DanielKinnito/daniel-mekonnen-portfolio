@@ -1,41 +1,46 @@
-import skills from "@/lib/data/skills";
 import Image from "next/image";
-import React from "react";
-import InfiniteCarousel from "../ui/infinite-carousel";
+import { SKILL_CATEGORIES } from "@/lib/data/skills";
 
 export default function Skills() {
   return (
-    <div className="skills flex flex-col items-center gap-8 px-10">
-      {/* frontend  */}
-      <div className="w-full self-center px-10">
-        <div className="w-full space-y-4">
-          <h4 className="text-center font-semibold text-typewriter">
-            Frontend
-          </h4>
-          <div>
-            <InfiniteCarousel data={skills.frontend} />
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {SKILL_CATEGORIES.map((cat, idx) => (
+        <div
+          key={idx}
+          className="rounded-xl border border-border bg-card p-5 shadow-xs transition-all duration-200 hover:border-accent/40 hover:shadow-sm"
+        >
+          {/* Category Header */}
+          <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-2">
+            <h3 className="text-base font-bold text-primary font-mono">
+              {cat.title}
+            </h3>
+            <span className="font-mono text-[11px] text-muted">
+              {cat.skills.length} items
+            </span>
           </div>
-        </div>
-      </div>
 
-      {/* others  */}
-      <div className="flex w-full flex-col justify-between gap-8 lg:flex-row">
-        {/* backend  */}
-        <div className="w-full lg:w-[45%] space-y-4">
-          <h4 className="text-center font-semibold text-typewriter">Backend</h4>
-          <div>
-            <InfiniteCarousel data={skills.backend} reverse={true} />
+          {/* Skill Pills */}
+          <div className="flex flex-wrap gap-2">
+            {cat.skills.map((skill, sIdx) => (
+              <div
+                key={sIdx}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface/70 px-2.5 py-1 text-xs font-mono text-secondary transition-all hover:border-accent/50 hover:text-primary active:scale-[0.98]"
+              >
+                {skill.icon && (
+                  <Image
+                    src={skill.icon}
+                    alt=""
+                    width={14}
+                    height={14}
+                    className="h-3.5 w-3.5 opacity-80"
+                  />
+                )}
+                <span>{skill.name}</span>
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* tools  */}
-        <div className="w-full lg:w-[45%] space-y-4">
-          <h4 className="text-center font-semibold text-typewriter">Tools</h4>
-          <div>
-            <InfiniteCarousel data={skills.tools} />
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Sofia_Sans, Playpen_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
