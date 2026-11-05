@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
-  const [activeHash, setActiveHash] = useState<string>("");
+  const [activeHash, setActiveHash] = useState<string>("#experience");
 
   const links = [
     { href: "#experience", label: "Experience" },
@@ -14,7 +14,7 @@ export default function NavBar() {
     { href: "#contact", label: "Contact" },
   ];
 
-  // Dynamic scroll spy: tracks active section precisely using viewport bounding rects
+  // Dynamic scroll spy: tracks active section as the user scrolls
   useEffect(() => {
     const sectionIds = ["experience", "projects", "skills", "education", "contact"];
 
@@ -28,19 +28,13 @@ export default function NavBar() {
         return;
       }
 
-      // 2. If at top of page (hero area), clear active selection
-      if (window.scrollY < 120) {
-        setActiveHash("");
-        return;
-      }
-
-      // 3. Find which section occupies the active reading threshold below the navbar (~180px)
+      // 2. Find which section occupies the active reading threshold below the navbar
       let currentSection = "";
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 260 && rect.bottom > 120) {
+          if (rect.top <= 260 && rect.bottom > 100) {
             currentSection = `#${id}`;
           }
         }
@@ -62,8 +56,8 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="overflow-x-auto no-scrollbar py-0.5">
-      <ul className="flex items-center gap-0.5 sm:gap-1 rounded-lg border border-border/70 bg-surface/50 p-1 text-xs font-mono whitespace-nowrap">
+    <nav className="overflow-x-auto no-scrollbar py-1">
+      <ul className="flex items-center gap-1.5 sm:gap-2 text-xs font-mono whitespace-nowrap">
         {links.map((l) => {
           const isActive = activeHash === l.href;
           return (
@@ -71,16 +65,13 @@ export default function NavBar() {
               <Link
                 href={l.href}
                 onClick={() => setActiveHash(l.href)}
-                className={`inline-flex items-center gap-1.5 rounded-md px-2.5 sm:px-3 py-1 transition-all duration-150 select-none ${
+                className={`inline-flex items-center justify-center rounded-lg border-2 px-3 py-1.5 text-xs font-mono font-semibold transition-all duration-75 select-none cursor-pointer ${
                   isActive
-                    ? "bg-card font-semibold text-primary border border-border/80 shadow-xs"
-                    : "text-secondary hover:text-primary hover:bg-surface/80 border border-transparent"
+                    ? "bg-accent text-white border-[#B83800] shadow-[0_2px_0_0_#8F2C00] hover:shadow-[0_3px_0_0_#8F2C00] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none"
+                    : "bg-card text-secondary border-border shadow-[0_2px_0_0_#D0CDC2] dark:shadow-[0_2px_0_0_#0F1012] hover:text-primary hover:border-accent/60 hover:-translate-y-0.5 hover:shadow-[0_3px_0_0_#D0CDC2] dark:hover:shadow-[0_3px_0_0_#0F1012] active:translate-y-0.5 active:shadow-none"
                 }`}
               >
-                {isActive && (
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 animate-in fade-in zoom-in-50 duration-150" />
-                )}
-                <span>{l.label}</span>
+                {l.label}
               </Link>
             </li>
           );
