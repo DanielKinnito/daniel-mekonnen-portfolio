@@ -357,3 +357,4 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
     </div>
   );
 }
+
