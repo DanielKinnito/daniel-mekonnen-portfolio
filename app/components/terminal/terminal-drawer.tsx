@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { GMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from "@/lib/constants";
+import { GMAIL_LINK, RESUME_LINK } from "@/lib/constants";
 import { useTheme } from "../theme-provider";
 
 interface TerminalDrawerProps {
@@ -30,8 +30,8 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
           <p className="text-accent font-bold">
             Daniel Mekonnen — Interactive Terminal v1.2
           </p>
-          <p className="text-secondary">
-            Type <span className="text-primary font-bold">help</span> to view available commands, or click any chip below.
+          <p className="text-stone-300">
+            Type <span className="text-stone-100 font-bold">help</span> to view available commands, or click any chip below.
           </p>
         </div>
       ),
@@ -107,26 +107,26 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
         outputNode = (
           <div className="space-y-1 text-xs">
             <p className="text-accent font-semibold">AVAILABLE COMMANDS:</p>
-            <div className="grid grid-cols-[100px_1fr] gap-x-3 gap-y-1 pt-1 text-secondary">
-              <span className="text-primary font-bold">about</span>
+            <div className="grid grid-cols-[100px_1fr] gap-x-3 gap-y-1 pt-1 text-stone-300">
+              <span className="text-stone-100 font-bold">about</span>
               <span>Overview &amp; backend engineering focus</span>
-              <span className="text-primary font-bold">experience</span>
+              <span className="text-stone-100 font-bold">experience</span>
               <span>Work track (AfterQuery, Revelo, A2SV)</span>
-              <span className="text-primary font-bold">projects</span>
+              <span className="text-stone-100 font-bold">projects</span>
               <span>Production &amp; open-source projects</span>
-              <span className="text-primary font-bold">hexpic</span>
+              <span className="text-stone-100 font-bold">hexpic</span>
               <span>HexPic ASCII engine specs &amp; MCP</span>
-              <span className="text-primary font-bold">skills</span>
+              <span className="text-stone-100 font-bold">skills</span>
               <span>Technical stack matrix</span>
-              <span className="text-primary font-bold">resume</span>
+              <span className="text-stone-100 font-bold">resume</span>
               <span>Open latest Google Drive resume</span>
-              <span className="text-primary font-bold">theme</span>
+              <span className="text-stone-100 font-bold">theme</span>
               <span>Toggle Light / Dark mode</span>
-              <span className="text-primary font-bold">doom</span>
+              <span className="text-stone-100 font-bold">doom</span>
               <span>Launch secret DOOM (1993) shareware</span>
-              <span className="text-primary font-bold">clear</span>
+              <span className="text-stone-100 font-bold">clear</span>
               <span>Clear terminal history</span>
-              <span className="text-primary font-bold">exit</span>
+              <span className="text-stone-100 font-bold">exit</span>
               <span>Close terminal</span>
             </div>
           </div>
@@ -135,13 +135,13 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
 
       case "about":
         outputNode = (
-          <div className="space-y-1.5 text-xs text-secondary leading-relaxed">
-            <p className="text-primary font-bold">Daniel Mekonnen — Backend Software Engineer</p>
+          <div className="space-y-1.5 text-xs text-stone-300 leading-relaxed">
+            <p className="text-stone-100 font-bold">Daniel Mekonnen — Backend Software Engineer</p>
             <p>
               Focused on scalable backend microservices, distributed APIs, and performance-critical developer tools.
               Creator of HexPic, e-commerce mini-apps, and automated pipelines.
             </p>
-            <p className="text-muted">
+            <p className="text-stone-400">
               Location: Addis Ababa, ET • Email: {GMAIL_LINK}
             </p>
           </div>
@@ -153,20 +153,20 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
         outputNode = (
           <div className="space-y-2 text-xs">
             <div className="border-l-2 border-accent pl-2.5">
-              <p className="text-primary font-bold">AfterQuery — Software Engineer (May 2026 — Present)</p>
-              <p className="text-secondary">Distributed architecture validation &amp; backend algorithmic correctness.</p>
+              <p className="text-stone-100 font-bold">AfterQuery — Software Engineer (May 2026 — Present)</p>
+              <p className="text-stone-300">Distributed architecture validation &amp; backend algorithmic correctness.</p>
             </div>
-            <div className="border-l-2 border-border pl-2.5">
-              <p className="text-primary font-bold">Revelo — Software Engineer (Jan 2026 — Mar 2026)</p>
-              <p className="text-secondary">Audited and refactored Python and Go microservices for performance.</p>
+            <div className="border-l-2 border-stone-700 pl-2.5">
+              <p className="text-stone-100 font-bold">Revelo — Software Engineer (Jan 2026 — Mar 2026)</p>
+              <p className="text-stone-300">Audited and refactored Python and Go microservices for performance.</p>
             </div>
-            <div className="border-l-2 border-border pl-2.5">
-              <p className="text-primary font-bold">A2SV — Head of Education (Mar 2025 — Oct 2025)</p>
-              <p className="text-secondary">Led Lecture Squad, instructed 18 international students in advanced DSA.</p>
+            <div className="border-l-2 border-stone-700 pl-2.5">
+              <p className="text-stone-100 font-bold">A2SV — Head of Education (Mar 2025 — Oct 2025)</p>
+              <p className="text-stone-300">Led Lecture Squad, instructed 18 international students in advanced DSA.</p>
             </div>
-            <div className="border-l-2 border-border pl-2.5">
-              <p className="text-primary font-bold">Eskalate LLC — Software Engineer Intern (Jun 2024 — Sep 2024)</p>
-              <p className="text-secondary">Built product catalog with Clean Architecture and REST API caching.</p>
+            <div className="border-l-2 border-stone-700 pl-2.5">
+              <p className="text-stone-100 font-bold">Eskalate LLC — Software Engineer Intern (Jun 2024 — Sep 2024)</p>
+              <p className="text-stone-300">Built product catalog with Clean Architecture and REST API caching.</p>
             </div>
           </div>
         );
@@ -176,18 +176,18 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
         outputNode = (
           <div className="space-y-1.5 text-xs">
             <p className="text-accent font-semibold">FEATURED PROJECTS:</p>
-            <div className="space-y-1 text-secondary">
+            <div className="space-y-1 text-stone-300">
               <p>
-                <span className="text-primary font-bold">1. HexPic:</span> Universal raster-to-vector ASCII &amp; MCP engine (TypeScript, Canvas).
+                <span className="text-stone-100 font-bold">1. HexPic:</span> Universal raster-to-vector ASCII &amp; MCP engine (TypeScript, Canvas).
               </p>
               <p>
-                <span className="text-primary font-bold">2. Telegram Sales CRM:</span> Mini App &amp; Express CRM backed by Notion &amp; Supabase.
+                <span className="text-stone-100 font-bold">2. Telegram Sales CRM:</span> Mini App &amp; Express CRM backed by Notion &amp; Supabase.
               </p>
               <p>
-                <span className="text-primary font-bold">3. Career-Fit-Jobs:</span> Telegram scraper bot with automated matching intervals.
+                <span className="text-stone-100 font-bold">3. Career-Fit-Jobs:</span> Telegram scraper bot with automated matching intervals.
               </p>
               <p>
-                <span className="text-primary font-bold">4. Smart Legal Platform:</span> Ethiopian law RAG chatbot with Gemini API &amp; Docker.
+                <span className="text-stone-100 font-bold">4. Smart Legal Platform:</span> Ethiopian law RAG chatbot with Gemini API &amp; Docker.
               </p>
             </div>
           </div>
@@ -196,10 +196,10 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
 
       case "hexpic":
         outputNode = (
-          <div className="space-y-1.5 text-xs text-secondary">
-            <p className="text-primary font-bold">hexpic (npm package v0.3.1)</p>
+          <div className="space-y-1.5 text-xs text-stone-300">
+            <p className="text-stone-100 font-bold">hexpic (npm package v0.3.1)</p>
             <p>High-performance visual engine converting images to TrueColor ASCII &amp; SVGs.</p>
-            <p className="text-muted font-mono">
+            <p className="text-stone-400 font-mono">
               Features: Atkinson dithering, 3x3 Sobel convolution, MCP server stdio, in-browser Canvas.
             </p>
             <a
@@ -216,11 +216,11 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
 
       case "skills":
         outputNode = (
-          <div className="space-y-1 text-xs text-secondary">
-            <p><span className="text-primary font-bold">Languages:</span> Python, TypeScript, Go, Dart, SQL, C++, PHP, Java</p>
-            <p><span className="text-primary font-bold">Frameworks:</span> Node.js, Express, Next.js, React, Django, Flutter</p>
-            <p><span className="text-primary font-bold">Databases &amp; Cloud:</span> PostgreSQL, Supabase, MongoDB, Docker, Linux</p>
-            <p><span className="text-primary font-bold">Tools:</span> REST APIs, MCP, CI/CD, Git, TDD, Telethon, GrammY</p>
+          <div className="space-y-1 text-xs text-stone-300">
+            <p><span className="text-stone-100 font-bold">Languages:</span> Python, TypeScript, Go, Dart, SQL, C++, PHP, Java</p>
+            <p><span className="text-stone-100 font-bold">Frameworks:</span> Node.js, Express, Next.js, React, Django, Flutter</p>
+            <p><span className="text-stone-100 font-bold">Databases &amp; Cloud:</span> PostgreSQL, Supabase, MongoDB, Docker, Linux</p>
+            <p><span className="text-stone-100 font-bold">Tools:</span> REST APIs, MCP, CI/CD, Git, TDD, Telethon, GrammY</p>
           </div>
         );
         break;
@@ -237,7 +237,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "theme":
         toggleTheme();
         outputNode = (
-          <p className="text-xs text-primary">
+          <p className="text-xs text-stone-100">
             Theme toggled to: <span className="text-accent font-bold">{theme === "dark" ? "light" : "dark"}</span>
           </p>
         );
@@ -260,7 +260,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       default:
         outputNode = (
           <p className="text-xs text-red-400">
-            command not found: <span className="font-bold">{cmd}</span>. Type <span className="text-primary underline">help</span> for commands.
+            command not found: <span className="font-bold">{cmd}</span>. Type <span className="text-stone-100 underline">help</span> for commands.
           </p>
         );
     }
@@ -307,9 +307,9 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-150">
-      <div className="relative flex h-[520px] w-full max-w-2xl flex-col rounded-xl border-2 border-border bg-[#0D0E11] text-stone-100 shadow-2xl overflow-hidden font-mono">
+      <div className="relative flex h-[520px] w-full max-w-2xl flex-col rounded-xl border-2 border-stone-800 bg-[#0D0E11] text-stone-100 shadow-2xl overflow-hidden font-mono">
         {/* PostHog tactile desktop title bar */}
-        <div className="flex items-center justify-between border-b border-border/80 bg-[#16171C] px-3.5 py-2.5 select-none">
+        <div className="flex items-center justify-between border-b border-stone-800 bg-[#16171C] px-3.5 py-2.5 select-none">
           <div className="flex items-center gap-2">
             <button
               onClick={isDoomRunning ? handleExitDoom : onClose}
@@ -392,7 +392,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
         ) : (
           <>
             {/* Quick Command Chips */}
-            <div className="flex flex-wrap items-center gap-1.5 border-b border-border/60 bg-[#121316] px-3 py-1.5 text-[11px]">
+            <div className="flex flex-wrap items-center gap-1.5 border-b border-stone-800 bg-[#121316] px-3 py-1.5 text-[11px]">
               <span className="text-stone-500 mr-1 select-none">Quick:</span>
               {["help", "about", "projects", "hexpic", "skills", "experience", "resume", "doom"].map((c) => (
                 <button
@@ -422,7 +422,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             {/* Interactive Input Form */}
             <form
               onSubmit={handleSubmit}
-              className="flex items-center gap-2 border-t border-border/80 bg-[#14151A] px-3.5 py-2.5"
+              className="flex items-center gap-2 border-t border-stone-800 bg-[#14151A] px-3.5 py-2.5"
             >
               <span className="text-accent font-bold text-xs select-none">daniel@portfolio:~$</span>
               <input
@@ -432,7 +432,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Type a command (help, projects, resume, or 'doom'...)"
-                className="flex-1 bg-transparent text-xs text-stone-100 outline-none placeholder:text-stone-600 font-mono"
+                className="flex-1 bg-transparent text-xs text-stone-100 outline-none placeholder:text-stone-500 font-mono"
                 autoComplete="off"
                 spellCheck="false"
               />
