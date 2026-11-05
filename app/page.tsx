@@ -1,5 +1,6 @@
 import ExperienceSection from "./components/experience/experience-section";
 import ContactSection from "./components/contact/contact-section";
+import EducationSection from "./components/education/education-section";
 import HomeSection from "./components/home/home-section";
 import ProjectsSection from "./components/projects/projects-section";
 import SkillsSection from "./components/skills/skills-section";
@@ -15,6 +16,8 @@ export default function Home() {
         <ProjectsSection />
         <div className="border-t border-border/70" />
         <SkillsSection />
+        <div className="border-t border-border/70" />
+        <EducationSection />
         <div className="border-t border-border/70" />
         <ContactSection />
       </div>

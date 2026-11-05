@@ -36,7 +36,7 @@ export default function ContactSection() {
       <div className="mb-8 space-y-2">
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold">
-            [04] Communication Channels
+            [05] Communication Channels
           </span>
         </div>
         <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">

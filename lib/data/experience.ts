@@ -36,7 +36,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: "A2SV | Africa to Silicon Valley",
-    role: "Remote Head of Education",
+    role: "Head of Education",
     period: "Mar 2025 — Oct 2025",
     location: "Addis Ababa, Ethiopia",
     url: "https://a2sv.org",

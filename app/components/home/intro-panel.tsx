@@ -25,7 +25,7 @@ export default function IntroPanel() {
       <motion.div variants={floatUp} className="inline-flex">
         <div className="flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1 text-xs font-mono text-muted shadow-sm">
           <span className="h-2 w-2 rounded-full bg-accent" />
-          <span className="text-primary font-medium">Remote Software Engineer</span>
+          <span className="text-primary font-medium">Software Engineer</span>
           <span className="text-border">•</span>
           <span>Addis Ababa, ET</span>
         </div>
@@ -37,17 +37,31 @@ export default function IntroPanel() {
           Daniel Mekonnen
         </h1>
         <p className="text-lg font-medium text-accent sm:text-xl font-mono">
-          Backend Architect & Algorithmic Problem Solver
+          Software Engineer — Backend & AI Systems
         </p>
       </motion.div>
 
-      {/* Lead Copy with PostHog-style subtle keyword highlights */}
+      {/* Lead Copy focusing on Engineering, Backend & Project work first */}
       <motion.p
         variants={floatUp}
         className="max-w-xl text-base leading-relaxed text-secondary sm:text-lg"
       >
-        Software Engineering graduate from Addis Ababa Science and Technology
-        University. Former Remote Head of Education and Lecture Squad Lead at{" "}
+        Software Engineer specializing in{" "}
+        <span className="highlighter-wash font-medium text-primary">backend microservices</span>,
+        distributed APIs, and{" "}
+        <span className="highlighter-wash font-medium text-primary">AI model reasoning evaluation</span>.
+        Currently engineering technical evaluation rubrics at{" "}
+        <strong className="font-semibold text-primary">AfterQuery</strong> and auditing codebases at{" "}
+        <strong className="font-semibold text-primary">Revelo</strong>. Creator of{" "}
+        <a
+          href="https://github.com/DanielKinnito/hexpic"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary font-semibold underline decoration-accent/60 underline-offset-4 hover:text-accent"
+        >
+          HexPic
+        </a>{" "}
+        (raster-to-vector ASCII &amp; MCP engine). Former Lecture Squad Lead &amp; Head of Education at{" "}
         <a
           href="https://a2sv.org"
           target="_blank"
@@ -55,27 +69,25 @@ export default function IntroPanel() {
           className="text-primary font-medium underline decoration-accent/60 underline-offset-4 hover:text-accent"
         >
           A2SV
-        </a>
-        . Specialized in building <span className="highlighter-wash font-medium text-primary">backend microservices</span>,{" "}
-        <span className="highlighter-wash font-medium text-primary">AI model reasoning evaluation</span>, and high-performance algorithmic tools.
+        </a>.
       </motion.p>
 
-      {/* Metric Proof Strip */}
+      {/* Metric Proof Strip: Highlighting Experience, Open Source, and Backend */}
       <motion.div
         variants={floatUp}
         className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg pt-1"
       >
         <div className="rounded-lg border border-border bg-card p-3 shadow-xs">
-          <p className="text-2xl font-bold font-mono text-primary">800+</p>
-          <p className="text-xs text-muted">Solved DSA Problems</p>
+          <p className="text-lg sm:text-xl font-bold font-mono text-primary truncate">AfterQuery</p>
+          <p className="text-xs text-muted">Software Engineer (AI)</p>
         </div>
         <div className="rounded-lg border border-border bg-card p-3 shadow-xs">
-          <p className="text-2xl font-bold font-mono text-primary">A2SV</p>
-          <p className="text-xs text-muted">Head of Education</p>
+          <p className="text-lg sm:text-xl font-bold font-mono text-primary truncate">HexPic</p>
+          <p className="text-xs text-muted">Raster &amp; MCP Engine</p>
         </div>
         <div className="rounded-lg border border-border bg-card p-3 shadow-xs col-span-2 sm:col-span-1">
-          <p className="text-2xl font-bold font-mono text-primary">3.58</p>
-          <p className="text-xs text-muted">CGPA / Software Eng.</p>
+          <p className="text-lg sm:text-xl font-bold font-mono text-primary truncate">Backend</p>
+          <p className="text-xs text-muted">APIs &amp; Microservices</p>
         </div>
       </motion.div>
 

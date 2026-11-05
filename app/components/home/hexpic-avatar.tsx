@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { HexPic } from "hexpic";
+import { useTheme } from "../theme-provider";
 
 interface Particle {
   char: string;
@@ -15,6 +16,9 @@ interface Particle {
 }
 
 export default function HexPicAvatar() {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [loading, setLoading] = useState(true);
@@ -30,7 +34,7 @@ export default function HexPicAvatar() {
   const animFrameId = useRef<number | null>(null);
   const isVisibleRef = useRef<boolean>(true);
 
-  // Initialize and generate ASCII art via HexPic
+  // Initialize and generate ASCII art via HexPic with native Light/Dark mode tuning
   useEffect(() => {
     let isCancelled = false;
 
@@ -39,12 +43,16 @@ export default function HexPicAvatar() {
         setLoading(true);
         setError(null);
 
+        // Native HexPic configuration with light/dark inversion & contrast tuning
         const hexpic = new HexPic({
           width: 46,
           colorMode: "color",
           dithering: "atkinson",
-          contrast: 112,
-          brightness: 102,
+          contrast: isLight ? 122 : 112,
+          brightness: isLight ? 98 : 102,
+          invert: isLight, // HexPic's luminance inversion for light mode contrast
+          backgroundColor: isLight ? "#F8F7F2" : "#121316",
+          textColor: isLight ? "#1F2328" : "#E6EDF3",
         });
 
         const result = await hexpic.fromUrl("/profile.jpg");
@@ -87,10 +95,20 @@ export default function HexPicAvatar() {
             const ox = c * charWidth + charWidth / 2;
             const oy = r * charHeight + charHeight / 2;
 
-            let colorStr = "#A1A1AA";
+            let colorStr = isLight ? "#24292F" : "#A1A1AA";
             if (colors && colors[r] && colors[r][c]) {
               const { r: cr, g: cg, b: cb } = colors[r][c];
-              colorStr = `rgb(${cr},${cg},${cb})`;
+              if (isLight) {
+                // Ensure sufficient contrast against light background
+                const lum = 0.2126 * cr + 0.7152 * cg + 0.0722 * cb;
+                if (lum > 210) {
+                  colorStr = "rgb(85,90,100)";
+                } else {
+                  colorStr = `rgb(${cr},${cg},${cb})`;
+                }
+              } else {
+                colorStr = `rgb(${cr},${cg},${cb})`;
+              }
             }
 
             particles.push({
@@ -122,7 +140,7 @@ export default function HexPicAvatar() {
     return () => {
       isCancelled = true;
     };
-  }, []);
+  }, [isLight]);
 
   // Pointer position tracker
   const handlePointerMove = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -278,7 +296,7 @@ export default function HexPicAvatar() {
 
       {/* Bottom tactile badge */}
       <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-muted">
-        <span>Atkinson Dithering • 3x3 Sobel</span>
+        <span>Atkinson • {isLight ? "Light Inverted" : "Dark Mode"}</span>
         <span className="text-accent/90">Hover or drag to displace</span>
       </div>
     </div>
