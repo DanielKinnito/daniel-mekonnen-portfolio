@@ -16,6 +16,9 @@ export default function HomeSection() {
         setTerminalOpen((prev) => !prev);
       } else if (
         e.key === "`" &&
+        !e.ctrlKey &&
+        !e.metaKey &&
+        !e.altKey &&
         document.activeElement?.tagName !== "INPUT" &&
         document.activeElement?.tagName !== "TEXTAREA"
       ) {

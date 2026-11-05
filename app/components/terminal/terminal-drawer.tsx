@@ -320,18 +320,29 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             <span className="h-3 w-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
             <span className="h-3 w-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
             <span className="ml-2 text-xs font-semibold text-stone-300">
-              {isDoomRunning ? "DOOM (1993) Shareware — dos.zone player" : "daniel@portfolio:~ [bash]"}
+              {isDoomRunning ? "DOOM (1993) Wasm Edition" : "daniel@portfolio:~ [bash]"}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
             {isDoomRunning ? (
-              <button
-                onClick={handleExitDoom}
-                className="inline-flex items-center gap-1.5 rounded border-2 border-red-500/80 bg-red-950/40 px-2 py-0.5 text-xs font-bold text-red-300 hover:bg-red-900/60 transition-colors cursor-pointer"
-              >
-                <span>[X] EXIT GAME (ESC)</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://silentspacemarine.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex items-center gap-1 rounded border border-stone-700 bg-stone-800 px-2 py-0.5 text-[11px] text-stone-300 hover:text-white hover:border-accent transition-colors"
+                  title="Open direct window if your browser blocks iframes"
+                >
+                  <span>Direct Tab ↗</span>
+                </a>
+                <button
+                  onClick={handleExitDoom}
+                  className="inline-flex items-center gap-1.5 rounded border-2 border-red-500/80 bg-red-950/40 px-2 py-0.5 text-xs font-bold text-red-300 hover:bg-red-900/60 transition-colors cursor-pointer"
+                >
+                  <span>[X] EXIT (ESC)</span>
+                </button>
+              </div>
             ) : (
               <>
                 <span className="text-[11px] text-stone-400">ESC to exit</span>
@@ -353,16 +364,26 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/95 text-accent font-mono text-xs space-y-2 p-6 text-center">
                 <div className="h-6 w-6 animate-spin rounded-full border-2 border-accent border-t-transparent" />
                 <p className="animate-pulse font-bold tracking-wider text-sm">
-                  DOWNLOADING DOOM BUNDLE (~15MB)...
+                  INITIALIZING WEBASSEMBLY DOOM...
                 </p>
                 <p className="text-[11px] text-stone-500">
-                  Initializing DOSBox emulator via CDN • WASD / Arrows to move • Ctrl to shoot
+                  WASD / Arrows to move • Ctrl to shoot • Space to open doors
                 </p>
+                <div className="pt-2">
+                  <a
+                    href="https://silentspacemarine.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-accent underline hover:text-accent/80"
+                  >
+                    If your browser or ad-blocker restricts iframes, click to play directly in a tab ↗
+                  </a>
+                </div>
               </div>
             )}
             <iframe
-              src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F2%2F24b00b14f118580763440ecaddcc948f8cb94f14.jsdos?anonymous=1"
-              allow="autoplay; fullscreen"
+              src="https://silentspacemarine.com/"
+              allow="autoplay; fullscreen; pointer-lock"
               className="w-full h-full border-0 bg-black"
               onLoad={() => setIsDoomLoading(false)}
               title="DOOM (1993)"

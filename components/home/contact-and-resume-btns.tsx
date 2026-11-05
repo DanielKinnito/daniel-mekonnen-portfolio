@@ -13,6 +13,12 @@ export default function ContactAndResumeBtns() {
       ) {
         return;
       }
+
+      // Ignore when modifier keys (Ctrl, Cmd/Meta, Alt) are pressed to allow native browser shortcuts (reload, print, etc.)
+      if (e.ctrlKey || e.metaKey || e.altKey) {
+        return;
+      }
+
       if (e.key === "e" || e.key === "E") {
         document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" });
       } else if (e.key === "p" || e.key === "P") {
