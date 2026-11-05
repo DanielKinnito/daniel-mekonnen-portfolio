@@ -18,6 +18,9 @@ interface HistoryItem {
 export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps) {
   const { theme, toggleTheme } = useTheme();
   const [input, setInput] = useState("");
+  const [isDoomRunning, setIsDoomRunning] = useState(false);
+  const [isDoomLoading, setIsDoomLoading] = useState(true);
+
   const [history, setHistory] = useState<HistoryItem[]>([
     {
       id: "init",
@@ -41,30 +44,54 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
   const inputRef = useRef<HTMLInputElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
-  // Auto-focus on open
+  // Auto-focus on open (when not running DOOM)
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isDoomRunning) {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
-  }, [isOpen]);
+  }, [isOpen, isDoomRunning]);
 
   // Scroll to bottom on new history
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isDoomRunning) {
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [history, isOpen]);
+  }, [history, isOpen, isDoomRunning]);
 
-  // Handle global Escape key to close
+  // Handle DOOM exit
+  const handleExitDoom = useCallback(() => {
+    setIsDoomRunning(false);
+    setIsDoomLoading(true);
+    setHistory((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(36).substring(7),
+        command: "exit doom",
+        output: (
+          <p className="text-xs text-stone-400">
+            [DOOM protocol terminated. Returning to terminal.]
+          </p>
+        ),
+      },
+    ]);
+    setTimeout(() => inputRef.current?.focus(), 80);
+  }, []);
+
+  // Handle global Escape key: exits DOOM first, or closes terminal
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape" && isOpen) {
-        onClose();
+        if (isDoomRunning) {
+          e.preventDefault();
+          handleExitDoom();
+        } else {
+          onClose();
+        }
       }
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, isDoomRunning, onClose, handleExitDoom]);
 
   const runCommand = useCallback((rawCmd: string) => {
     const cmd = rawCmd.trim().toLowerCase();
@@ -82,9 +109,9 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             <p className="text-accent font-semibold">AVAILABLE COMMANDS:</p>
             <div className="grid grid-cols-[100px_1fr] gap-x-3 gap-y-1 pt-1 text-secondary">
               <span className="text-primary font-bold">about</span>
-              <span>Overview &amp; engineering focus</span>
+              <span>Overview &amp; backend engineering focus</span>
               <span className="text-primary font-bold">experience</span>
-              <span>Work history (AfterQuery, Revelo, A2SV)</span>
+              <span>Work track (AfterQuery, Revelo, A2SV)</span>
               <span className="text-primary font-bold">projects</span>
               <span>Production &amp; open-source projects</span>
               <span className="text-primary font-bold">hexpic</span>
@@ -95,6 +122,8 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
               <span>Open latest Google Drive resume</span>
               <span className="text-primary font-bold">theme</span>
               <span>Toggle Light / Dark mode</span>
+              <span className="text-primary font-bold">doom</span>
+              <span>Launch secret DOOM (1993) shareware</span>
               <span className="text-primary font-bold">clear</span>
               <span>Clear terminal history</span>
               <span className="text-primary font-bold">exit</span>
@@ -107,10 +136,10 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "about":
         outputNode = (
           <div className="space-y-1.5 text-xs text-secondary leading-relaxed">
-            <p className="text-primary font-bold">Daniel Mekonnen — Software Engineer</p>
+            <p className="text-primary font-bold">Daniel Mekonnen — Backend Software Engineer</p>
             <p>
-              Specializing in backend microservices, distributed APIs, and AI model reasoning evaluation.
-              Currently evaluating complex LLM code and architecture rubrics at AfterQuery.
+              Focused on scalable backend microservices, distributed APIs, and performance-critical developer tools.
+              Creator of HexPic, e-commerce mini-apps, and automated pipelines.
             </p>
             <p className="text-muted">
               Location: Addis Ababa, ET • Email: {GMAIL_LINK}
@@ -214,6 +243,11 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
         );
         break;
 
+      case "doom":
+        setIsDoomRunning(true);
+        setIsDoomLoading(true);
+        return;
+
       case "clear":
         setHistory([]);
         return;
@@ -278,83 +312,119 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
         <div className="flex items-center justify-between border-b border-border/80 bg-[#16171C] px-3.5 py-2.5 select-none">
           <div className="flex items-center gap-2">
             <button
-              onClick={onClose}
+              onClick={isDoomRunning ? handleExitDoom : onClose}
               className="h-3 w-3 rounded-full bg-[#FF5F56] border border-[#E0443E] hover:opacity-80 cursor-pointer"
-              aria-label="Close terminal"
+              aria-label="Close"
               title="Close"
             />
             <span className="h-3 w-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
             <span className="h-3 w-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
             <span className="ml-2 text-xs font-semibold text-stone-300">
-              daniel@portfolio:~ [bash]
+              {isDoomRunning ? "DOOM (1993) Shareware — dos.zone player" : "daniel@portfolio:~ [bash]"}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[11px] text-stone-400">ESC to exit</span>
-            <button
-              onClick={onClose}
-              className="rounded px-1.5 py-0.5 text-xs text-stone-400 hover:bg-stone-800 hover:text-stone-100 transition-colors"
-            >
-              ✕
-            </button>
+            {isDoomRunning ? (
+              <button
+                onClick={handleExitDoom}
+                className="inline-flex items-center gap-1.5 rounded border-2 border-red-500/80 bg-red-950/40 px-2 py-0.5 text-xs font-bold text-red-300 hover:bg-red-900/60 transition-colors cursor-pointer"
+              >
+                <span>[X] EXIT GAME (ESC)</span>
+              </button>
+            ) : (
+              <>
+                <span className="text-[11px] text-stone-400">ESC to exit</span>
+                <button
+                  onClick={onClose}
+                  className="rounded px-1.5 py-0.5 text-xs text-stone-400 hover:bg-stone-800 hover:text-stone-100 transition-colors"
+                >
+                  ✕
+                </button>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Quick Command Chips */}
-        <div className="flex flex-wrap items-center gap-1.5 border-b border-border/60 bg-[#121316] px-3 py-1.5 text-[11px]">
-          <span className="text-stone-500 mr-1">Quick:</span>
-          {["help", "about", "experience", "projects", "hexpic", "skills", "resume"].map((c) => (
-            <button
-              key={c}
-              onClick={() => runCommand(c)}
-              className="rounded border border-stone-800 bg-[#1A1B20] px-2 py-0.5 text-stone-300 hover:border-accent hover:text-accent transition-colors"
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-
-        {/* Terminal Output Body */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 font-mono text-xs leading-relaxed">
-          {history.map((h) => (
-            <div key={h.id} className="space-y-1">
-              <div className="flex items-center gap-2 text-stone-400">
-                <span className="text-accent font-bold">daniel@portfolio:~$</span>
-                <span className="text-stone-100 font-semibold">{h.command}</span>
+        {/* View Switch: DOOM Game Container or Terminal */}
+        {isDoomRunning ? (
+          <div className="relative flex-1 w-full h-full bg-black overflow-hidden select-none">
+            {isDoomLoading && (
+              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/95 text-accent font-mono text-xs space-y-2 p-6 text-center">
+                <div className="h-6 w-6 animate-spin rounded-full border-2 border-accent border-t-transparent" />
+                <p className="animate-pulse font-bold tracking-wider text-sm">
+                  DOWNLOADING DOOM BUNDLE (~15MB)...
+                </p>
+                <p className="text-[11px] text-stone-500">
+                  Initializing DOSBox emulator via CDN • WASD / Arrows to move • Ctrl to shoot
+                </p>
               </div>
-              <div className="pl-4">{h.output}</div>
+            )}
+            <iframe
+              src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F2%2F24b00b14f118580763440ecaddcc948f8cb94f14.jsdos?anonymous=1"
+              allow="autoplay; fullscreen"
+              className="w-full h-full border-0 bg-black"
+              onLoad={() => setIsDoomLoading(false)}
+              title="DOOM (1993)"
+            />
+          </div>
+        ) : (
+          <>
+            {/* Quick Command Chips */}
+            <div className="flex flex-wrap items-center gap-1.5 border-b border-border/60 bg-[#121316] px-3 py-1.5 text-[11px]">
+              <span className="text-stone-500 mr-1">Quick:</span>
+              {["help", "about", "projects", "hexpic", "skills", "experience", "resume"].map((c) => (
+                <button
+                  key={c}
+                  onClick={() => runCommand(c)}
+                  className="rounded border border-stone-800 bg-[#1A1B20] px-2 py-0.5 text-stone-300 hover:border-accent hover:text-accent transition-colors"
+                >
+                  {c}
+                </button>
+              ))}
             </div>
-          ))}
-          <div ref={bottomRef} />
-        </div>
 
-        {/* Interactive Input Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="flex items-center gap-2 border-t border-border/80 bg-[#14151A] px-3.5 py-2.5"
-        >
-          <span className="text-accent font-bold text-xs select-none">daniel@portfolio:~$</span>
-          <input
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Type a command (help, experience, projects, resume...)"
-            className="flex-1 bg-transparent text-xs text-stone-100 outline-none placeholder:text-stone-600 font-mono"
-            autoComplete="off"
-            spellCheck="false"
-          />
-          <button
-            type="submit"
-            className="rounded border border-stone-700 bg-stone-800 px-2 py-0.5 text-[11px] text-stone-300 hover:border-accent hover:text-accent font-mono transition-colors"
-          >
-            Enter ↵
-          </button>
-        </form>
+            {/* Terminal Output Body */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 font-mono text-xs leading-relaxed">
+              {history.map((h) => (
+                <div key={h.id} className="space-y-1">
+                  <div className="flex items-center gap-2 text-stone-400">
+                    <span className="text-accent font-bold">daniel@portfolio:~$</span>
+                    <span className="text-stone-100 font-semibold">{h.command}</span>
+                  </div>
+                  <div className="pl-4">{h.output}</div>
+                </div>
+              ))}
+              <div ref={bottomRef} />
+            </div>
+
+            {/* Interactive Input Form */}
+            <form
+              onSubmit={handleSubmit}
+              className="flex items-center gap-2 border-t border-border/80 bg-[#14151A] px-3.5 py-2.5"
+            >
+              <span className="text-accent font-bold text-xs select-none">daniel@portfolio:~$</span>
+              <input
+                ref={inputRef}
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a command (help, projects, resume, or 'doom'...)"
+                className="flex-1 bg-transparent text-xs text-stone-100 outline-none placeholder:text-stone-600 font-mono"
+                autoComplete="off"
+                spellCheck="false"
+              />
+              <button
+                type="submit"
+                className="rounded border border-stone-700 bg-stone-800 px-2 py-0.5 text-[11px] text-stone-300 hover:border-accent hover:text-accent font-mono transition-colors"
+              >
+                Enter ↵
+              </button>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );
 }
-

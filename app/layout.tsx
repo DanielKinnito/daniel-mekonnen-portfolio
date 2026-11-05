@@ -9,7 +9,7 @@ import { ThemeProvider } from "./components/theme-provider";
 export const metadata: Metadata = {
   title: "Daniel Mekonnen — Software Engineer",
   description:
-    "Software Engineer specializing in backend microservices, distributed APIs, and AI model reasoning evaluation. Creator of HexPic (universal raster-to-vector ASCII & MCP engine).",
+    "Backend Software Engineer specializing in scalable microservices, distributed APIs, and performance-critical developer tools. Creator of HexPic.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

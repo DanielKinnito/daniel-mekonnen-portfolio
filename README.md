@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Daniel Mekonnen</h1>
-  <p><strong>Software Engineer — Backend Architecture &amp; AI Systems</strong></p>
+  <p><strong>Software Engineer — Backend Architecture &amp; Systems</strong></p>
   <p>
     <a href="https://github.com/DanielKinnito/daniel-mekonnen-portfolio/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License MIT" /></a>
     <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-14.0.4-black.svg?style=flat-square&logo=next.js" alt="Next.js" /></a>
@@ -14,13 +14,14 @@
 
 ### Overview
 
-Personal engineering portfolio and interactive developer workspace designed with a tactile, developer-focused aesthetic inspired by [PostHog](https://posthog.com). The site highlights production backend microservices, AI reasoning evaluation, and open-source tooling, featuring an interactive TrueColor ASCII avatar powered by [HexPic](https://github.com/DanielKinnito/hexpic) and an embedded developer terminal (`⌘K`).
+Personal engineering portfolio and interactive developer workspace designed with a tactile, developer-focused aesthetic inspired by [PostHog](https://posthog.com). The site highlights production backend microservices, distributed APIs, databases, and open-source tooling, featuring an interactive TrueColor ASCII avatar powered by [HexPic](https://github.com/DanielKinnito/hexpic) and an embedded developer terminal (`⌘K` / `doom`).
 
 - **Tactile Keycap Design**: 3D mechanical keyboard keycaps with physical travel depression (`active:translate-y-1`) and keyboard navigation shortcuts (`[E]`, `[P]`, `[R]`, `[↵]`).
 - **Interactive TrueColor ASCII Canvas**: Real-time pointer physics using spring-damping algorithms and Atkinson error-diffusion dithering via `hexpic`.
-- **Embedded Developer Terminal**: Fast in-browser CLI (`⌘K` or `` ` ``) providing interactive commands (`help`, `experience`, `projects`, `hexpic`, `resume`, `skills`, `theme`).
+- **Embedded Developer Terminal**: Fast in-browser CLI (`⌘K` or `` ` ``) providing interactive commands (`help`, `experience`, `projects`, `hexpic`, `resume`, `skills`, `theme`, and secret `doom`).
+- **Secret DOOM Easter Egg**: In-place swap embedding DOOM (1993) via `dos.zone` with zero initial bundle overhead and complete audio/input sandboxing.
 - **Dual Tactile Themes**: Carefully balanced warm sand light mode (`#F8F7F2`) and deep carbon dark mode (`#121316`) anchored with PostHog's warm ember (`#F54E00`).
-- **Engineered Hierarchy**: Work experience (AfterQuery, Revelo, A2SV, Eskalate) and production projects front-and-center, with dedicated sections for skills and academic achievements.
+- **Engineered Hierarchy**: Work experience, backend microservices, and production projects front-and-center, with dedicated sections for skills and academic achievements.
 
 ---
 
