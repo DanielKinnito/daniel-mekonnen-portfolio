@@ -43,14 +43,14 @@ export default function HexPicAvatar() {
         setLoading(true);
         setError(null);
 
-        // Native HexPic configuration with light/dark inversion & contrast tuning
+        // Native HexPic configuration with TrueColor fidelity in both Light & Dark modes
         const hexpic = new HexPic({
           width: 46,
           colorMode: "color",
           dithering: "atkinson",
-          contrast: isLight ? 122 : 112,
-          brightness: isLight ? 98 : 102,
-          invert: isLight, // HexPic's luminance inversion for light mode contrast
+          contrast: 114,
+          brightness: 104,
+          invert: false, // Keep false to preserve authentic TrueColor skin tones and hue
           backgroundColor: isLight ? "#F8F7F2" : "#121316",
           textColor: isLight ? "#1F2328" : "#E6EDF3",
         });
@@ -98,17 +98,7 @@ export default function HexPicAvatar() {
             let colorStr = isLight ? "#24292F" : "#A1A1AA";
             if (colors && colors[r] && colors[r][c]) {
               const { r: cr, g: cg, b: cb } = colors[r][c];
-              if (isLight) {
-                // Ensure sufficient contrast against light background
-                const lum = 0.2126 * cr + 0.7152 * cg + 0.0722 * cb;
-                if (lum > 210) {
-                  colorStr = "rgb(85,90,100)";
-                } else {
-                  colorStr = `rgb(${cr},${cg},${cb})`;
-                }
-              } else {
-                colorStr = `rgb(${cr},${cg},${cb})`;
-              }
+              colorStr = `rgb(${cr},${cg},${cb})`;
             }
 
             particles.push({
@@ -296,7 +286,7 @@ export default function HexPicAvatar() {
 
       {/* Bottom tactile badge */}
       <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-muted">
-        <span>Atkinson • {isLight ? "Light Inverted" : "Dark Mode"}</span>
+        <span>TrueColor Atkinson • 3x3 Sobel</span>
         <span className="text-accent/90">Hover or drag to displace</span>
       </div>
     </div>

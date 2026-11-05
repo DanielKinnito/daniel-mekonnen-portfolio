@@ -50,9 +50,9 @@ export default function IntroPanel() {
         <span className="highlighter-wash font-medium text-primary">backend microservices</span>,
         distributed APIs, and{" "}
         <span className="highlighter-wash font-medium text-primary">AI model reasoning evaluation</span>.
-        Currently engineering technical evaluation rubrics at{" "}
-        <strong className="font-semibold text-primary">AfterQuery</strong> and auditing codebases at{" "}
-        <strong className="font-semibold text-primary">Revelo</strong>. Creator of{" "}
+        Currently engineering technical evaluation rubrics for NDA-restricted AI models at{" "}
+        <strong className="font-semibold text-primary">AfterQuery</strong>. Previously audited and refactored
+        AI-generated codebases at <strong className="font-semibold text-primary">Revelo</strong>. Creator of{" "}
         <a
           href="https://github.com/DanielKinnito/hexpic"
           target="_blank"

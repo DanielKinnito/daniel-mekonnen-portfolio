@@ -35,3 +35,4 @@ export const EDUCATION_LIST: Education[] = [
     ],
   },
 ];
+

@@ -7,9 +7,16 @@ import Footer from "./components/footer/footer";
 import { ThemeProvider } from "./components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Daniel Mekonnen - Software Engineer and Competitive Programmer",
+  title: "Daniel Mekonnen — Software Engineer",
   description:
-    "Welcome to my personal portfolio website. I am a passionate Software Engineering graduate from Addis Ababa Science and Technology University with expertise in Python, C++, and Dart. Skilled in data structures, algorithms, and competitive programming. Explore my portfolio to learn more about my projects and problem-solving skills.",
+    "Software Engineer specializing in backend microservices, distributed APIs, and AI model reasoning evaluation. Creator of HexPic (universal raster-to-vector ASCII & MCP engine).",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 const cubonoFont = localFont({
