@@ -54,7 +54,7 @@ export default function Project({
                 href={urls.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-border bg-card px-3 py-1.5 font-mono text-xs font-semibold text-primary shadow-[0_2.5px_0_0_#2B2D33] dark:shadow-[0_2.5px_0_0_#0F1012] hover:shadow-[0_3.5px_0_0_#2B2D33] dark:hover:shadow-[0_3.5px_0_0_#0F1012] hover:border-accent/60 hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all"
+                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-border bg-card px-3 py-1.5 font-mono text-xs font-semibold text-primary shadow-[0_2.5px_0_0_#D0CDC2] dark:shadow-[0_2.5px_0_0_#0F1012] hover:shadow-[0_3.5px_0_0_#D0CDC2] dark:hover:shadow-[0_3.5px_0_0_#0F1012] hover:border-accent/60 hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all"
               >
                 <Image
                   src="/skills/github.svg"

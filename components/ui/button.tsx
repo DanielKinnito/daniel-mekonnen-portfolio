@@ -34,9 +34,9 @@ export default function Button({
     primary:
       "bg-accent text-white border-[#B83800] shadow-[0_3px_0_0_#8F2C00] hover:shadow-[0_4px_0_0_#8F2C00] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none",
     secondary:
-      "bg-card text-primary border-border shadow-[0_3px_0_0_#2B2D33] dark:shadow-[0_3px_0_0_#0A0B0D] hover:shadow-[0_4px_0_0_#2B2D33] dark:hover:shadow-[0_4px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none",
+      "bg-card text-primary border-border shadow-[0_2.5px_0_0_#D0CDC2] dark:shadow-[0_2.5px_0_0_#0A0B0D] hover:shadow-[0_3.5px_0_0_#D0CDC2] dark:hover:shadow-[0_3.5px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none",
     outline:
-      "bg-surface text-secondary hover:text-primary border-border shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none",
+      "bg-surface text-secondary hover:text-primary border-border shadow-[0_2px_0_0_#D0CDC2] dark:shadow-[0_2px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none",
   };
 
   const innerContent = (

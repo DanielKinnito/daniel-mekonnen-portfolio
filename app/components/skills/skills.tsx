@@ -24,7 +24,7 @@ export default function Skills() {
             {cat.skills.map((skill, sIdx) => (
               <div
                 key={sIdx}
-                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-border bg-surface/80 px-2.5 py-1 text-xs font-mono font-medium text-secondary shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0F1012] hover:shadow-[0_3px_0_0_#2B2D33] dark:hover:shadow-[0_3px_0_0_#0F1012] hover:border-accent/60 hover:text-primary hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-default select-none"
+                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-border bg-surface/80 px-2.5 py-1 text-xs font-mono font-medium text-secondary shadow-[0_2px_0_0_#D0CDC2] dark:shadow-[0_2px_0_0_#0F1012] hover:shadow-[0_3px_0_0_#D0CDC2] dark:hover:shadow-[0_3px_0_0_#0F1012] hover:border-accent/60 hover:text-primary hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-default select-none"
               >
                 {skill.icon && (
                   <Image

@@ -40,8 +40,6 @@ export default function NavBar() {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Active when the section top has scrolled past the header offset
-          // and its bottom is still visible in the upper viewport
           if (rect.top <= 260 && rect.bottom > 120) {
             currentSection = `#${id}`;
           }
@@ -64,8 +62,8 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="overflow-x-auto no-scrollbar">
-      <ul className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-mono whitespace-nowrap">
+    <nav className="overflow-x-auto no-scrollbar py-0.5">
+      <ul className="flex items-center gap-0.5 sm:gap-1 rounded-lg border border-border/70 bg-surface/50 p-1 text-xs font-mono whitespace-nowrap">
         {links.map((l) => {
           const isActive = activeHash === l.href;
           return (
@@ -73,13 +71,16 @@ export default function NavBar() {
               <Link
                 href={l.href}
                 onClick={() => setActiveHash(l.href)}
-                className={`inline-block rounded-md px-3 py-1.5 transition-all duration-100 ${
+                className={`inline-flex items-center gap-1.5 rounded-md px-2.5 sm:px-3 py-1 transition-all duration-150 select-none ${
                   isActive
-                    ? "bg-surface font-semibold text-primary border-2 border-border shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0F1012]"
-                    : "text-secondary hover:text-primary hover:bg-surface/60 border border-transparent hover:border-border hover:shadow-[0_1.5px_0_0_#2B2D33] dark:hover:shadow-[0_1.5px_0_0_#0F1012]"
+                    ? "bg-card font-semibold text-primary border border-border/80 shadow-xs"
+                    : "text-secondary hover:text-primary hover:bg-surface/80 border border-transparent"
                 }`}
               >
-                {l.label}
+                {isActive && (
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 animate-in fade-in zoom-in-50 duration-150" />
+                )}
+                <span>{l.label}</span>
               </Link>
             </li>
           );

@@ -49,7 +49,7 @@ export default function HomeSection() {
             {/* Tactile Terminal Launcher Button */}
             <button
               onClick={() => setTerminalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-border bg-card px-2.5 py-1 text-xs font-mono font-medium text-secondary hover:text-primary hover:border-accent shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0F1012] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-border bg-card px-2.5 py-1 text-xs font-mono font-medium text-secondary hover:text-primary hover:border-accent shadow-[0_2px_0_0_#D0CDC2] dark:shadow-[0_2px_0_0_#0F1012] hover:-translate-y-0.5 hover:shadow-[0_3px_0_0_#D0CDC2] dark:hover:shadow-[0_3px_0_0_#0F1012] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer"
               title="Open developer terminal (⌘K)"
             >
               <span className="text-accent font-bold">&gt;_</span>
