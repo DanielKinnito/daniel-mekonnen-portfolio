@@ -32,10 +32,10 @@ export default function Header() {
             href={RESUME_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-mono font-medium text-primary hover:border-accent/50 hover:bg-surface transition-all active:scale-[0.98]"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border-2 border-border bg-card px-3 py-1.5 text-xs font-mono font-semibold text-primary shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0F1012] hover:-translate-y-0.5 hover:shadow-[0_3px_0_0_#2B2D33] dark:hover:shadow-[0_3px_0_0_#0F1012] hover:border-accent/60 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer"
           >
             <span>Resume</span>
-            <span className="ml-1 text-[10px] text-muted">↗</span>
+            <span className="text-[10px] text-muted">↗</span>
           </a>
         </div>
       </div>

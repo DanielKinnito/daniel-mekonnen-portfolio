@@ -20,13 +20,16 @@ export default function Projects() {
       <div className="flex flex-col items-center pt-2">
         <button
           onClick={() => setShowAdditional((prev) => !prev)}
-          className="inline-flex items-center gap-2 rounded-lg border border-dashed border-border px-4 py-2 text-xs font-mono text-muted hover:border-accent hover:text-primary transition-all active:scale-[0.98]"
+          className="inline-flex items-center gap-2 rounded-lg border-2 border-border bg-card px-4 py-2 text-xs font-mono font-semibold text-secondary hover:text-primary hover:border-accent shadow-[0_2.5px_0_0_#2B2D33] dark:shadow-[0_2.5px_0_0_#0F1012] hover:-translate-y-0.5 hover:shadow-[0_3.5px_0_0_#2B2D33] dark:hover:shadow-[0_3.5px_0_0_#0F1012] active:translate-y-1 active:shadow-none transition-all cursor-pointer"
         >
           <span>
             {showAdditional
               ? "▲ Hide additional projects"
               : "+ View 2 more projects [Attune VS Code Extension, Scoundrel Web Game]"}
           </span>
+          <kbd className="hidden sm:inline-block rounded bg-surface px-1.5 py-0.2 text-[10px] text-muted border border-border">
+            {showAdditional ? "ESC" : "MORE"}
+          </kbd>
         </button>
 
         {showAdditional && (

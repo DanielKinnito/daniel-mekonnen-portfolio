@@ -36,14 +36,14 @@ export default function Project({
             )}
           </div>
 
-          {/* Action Links */}
+          {/* Action Links with PostHog mechanical keycap styling */}
           <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
             {urls.liveDemo && (
               <a
                 href={urls.liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-white shadow-xs hover:bg-accent/90 transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-[#B83800] bg-accent px-3 py-1.5 font-mono text-xs font-semibold text-white shadow-[0_2.5px_0_0_#8F2C00] hover:shadow-[0_3.5px_0_0_#8F2C00] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all"
               >
                 <span>Live Demo</span>
                 <span className="text-[10px]">↗</span>
@@ -54,7 +54,7 @@ export default function Project({
                 href={urls.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface px-3 py-1.5 text-xs font-medium text-primary hover:border-accent/50 hover:bg-surface/80 transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-border bg-card px-3 py-1.5 font-mono text-xs font-semibold text-primary shadow-[0_2.5px_0_0_#2B2D33] dark:shadow-[0_2.5px_0_0_#0F1012] hover:shadow-[0_3.5px_0_0_#2B2D33] dark:hover:shadow-[0_3.5px_0_0_#0F1012] hover:border-accent/60 hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all"
               >
                 <Image
                   src="/skills/github.svg"
@@ -64,6 +64,7 @@ export default function Project({
                   className="opacity-80"
                 />
                 <span>Source</span>
+                <span className="text-[10px]">↗</span>
               </a>
             )}
           </div>

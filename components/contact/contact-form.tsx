@@ -143,6 +143,7 @@ export default function ContactForm() {
             <Button
               variant="primary"
               text={isSending ? "Sending..." : "Send Message"}
+              shortcut="↵"
               icon="/svg/send-message.svg"
             />
           </div>

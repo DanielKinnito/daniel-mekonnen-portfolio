@@ -22,10 +22,10 @@ export default function NavBar() {
             <Link
               href={l.href}
               onClick={() => setActiveHash(l.href)}
-              className={`inline-block rounded-md px-3 py-1.5 transition-all duration-150 ${
+              className={`inline-block rounded-md px-3 py-1.5 transition-all duration-100 ${
                 activeHash === l.href
-                  ? "bg-surface font-semibold text-primary border border-border"
-                  : "text-secondary hover:text-primary hover:bg-surface/50"
+                  ? "bg-surface font-semibold text-primary border-2 border-border shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0F1012]"
+                  : "text-secondary hover:text-primary hover:bg-surface/60 border border-transparent hover:border-border hover:shadow-[0_1.5px_0_0_#2B2D33] dark:hover:shadow-[0_1.5px_0_0_#0F1012]"
               }`}
             >
               {l.label}
