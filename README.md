@@ -19,7 +19,7 @@ Personal engineering portfolio and interactive developer workspace designed with
 - **Tactile Keycap Design**: 3D mechanical keyboard keycaps with physical travel depression (`active:translate-y-1`) and keyboard navigation shortcuts (`[E]`, `[P]`, `[R]`, `[↵]`).
 - **Interactive TrueColor ASCII Canvas**: Real-time pointer physics using spring-damping algorithms and Atkinson error-diffusion dithering via `hexpic`.
 - **Embedded Developer Terminal**: Fast in-browser CLI (`⌘K` or `` ` ``) providing interactive commands (`help`, `experience`, `projects`, `hexpic`, `resume`, `skills`, `theme`, and secret `doom`).
-- **Secret DOOM Easter Egg**: In-place swap embedding DOOM (1993) via `dos.zone` with zero initial bundle overhead and complete audio/input sandboxing.
+- **Secret DOOM Easter Egg**: In-place swap embedding DOOM (1993) via WebAssembly with zero initial bundle overhead and complete audio/input sandboxing.
 - **Dual Tactile Themes**: Carefully balanced warm sand light mode (`#F8F7F2`) and deep carbon dark mode (`#121316`) anchored with PostHog's warm ember (`#F54E00`).
 - **Engineered Hierarchy**: Work experience, backend microservices, and production projects front-and-center, with dedicated sections for skills and academic achievements.
 
@@ -32,7 +32,7 @@ Personal engineering portfolio and interactive developer workspace designed with
 | **ASCII Avatar** | `app/components/home/hexpic-avatar.tsx` | TrueColor ASCII matrix on `<canvas>` with Atkinson dithering & pointer physics displacement. |
 | **Desktop Window** | `app/components/home/home-section.tsx` | PostHog-inspired tactile desktop window with macOS status controls and terminal launcher. |
 | **CLI Terminal** | `app/components/terminal/terminal-drawer.tsx` | Interactive CLI supporting command history, arrow navigation, and quick chips. |
-| **Work Experience** | `app/components/experience/` | Detailed timeline covering AI reasoning rubrics at AfterQuery and code auditing at Revelo. |
+| **Work Experience** | `app/components/experience/` | Production software engineering roles, microservice architectures, and systems leadership. |
 | **Projects Showcase** | `app/components/projects/` | Tactile project cards with live demo links, source code, and "+ View more" disclosure toggle. |
 | **Education Section** | `app/components/education/` | AASTU Software Engineering BSc (CGPA 3.58) and A2SV Google-backed incubator credentials (800+ solved DSA). |
 | **Design Tokens** | `tailwind.config.ts`, `globals.css` | 1px hairline borders, monospace metadata, and tactile mechanical shadows. |

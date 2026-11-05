@@ -154,11 +154,11 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
           <div className="space-y-2 text-xs">
             <div className="border-l-2 border-accent pl-2.5">
               <p className="text-primary font-bold">AfterQuery — Software Engineer (May 2026 — Present)</p>
-              <p className="text-secondary">NDA-restricted AI reasoning evaluation rubrics &amp; algorithmic correctness.</p>
+              <p className="text-secondary">Distributed architecture validation &amp; backend algorithmic correctness.</p>
             </div>
             <div className="border-l-2 border-border pl-2.5">
-              <p className="text-primary font-bold">Revelo — Technical Code Evaluator (Jan 2026 — Mar 2026)</p>
-              <p className="text-secondary">Audited and refactored AI-generated Python/Go codebases.</p>
+              <p className="text-primary font-bold">Revelo — Software Engineer (Jan 2026 — Mar 2026)</p>
+              <p className="text-secondary">Audited and refactored Python and Go microservices for performance.</p>
             </div>
             <div className="border-l-2 border-border pl-2.5">
               <p className="text-primary font-bold">A2SV — Head of Education (Mar 2025 — Oct 2025)</p>
@@ -393,12 +393,12 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
           <>
             {/* Quick Command Chips */}
             <div className="flex flex-wrap items-center gap-1.5 border-b border-border/60 bg-[#121316] px-3 py-1.5 text-[11px]">
-              <span className="text-stone-500 mr-1">Quick:</span>
-              {["help", "about", "projects", "hexpic", "skills", "experience", "resume"].map((c) => (
+              <span className="text-stone-500 mr-1 select-none">Quick:</span>
+              {["help", "about", "projects", "hexpic", "skills", "experience", "resume", "doom"].map((c) => (
                 <button
                   key={c}
                   onClick={() => runCommand(c)}
-                  className="rounded border border-stone-800 bg-[#1A1B20] px-2 py-0.5 text-stone-300 hover:border-accent hover:text-accent transition-colors"
+                  className="rounded-md border border-stone-700/80 bg-[#1A1B20] px-2 py-0.5 text-stone-300 hover:border-accent hover:text-accent shadow-[0_1.5px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer font-mono"
                 >
                   {c}
                 </button>
@@ -438,7 +438,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
               />
               <button
                 type="submit"
-                className="rounded border border-stone-700 bg-stone-800 px-2 py-0.5 text-[11px] text-stone-300 hover:border-accent hover:text-accent font-mono transition-colors"
+                className="rounded-md border border-stone-700 bg-stone-800 px-2.5 py-1 text-[11px] font-semibold text-stone-200 hover:border-accent hover:text-accent shadow-[0_1.5px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all font-mono cursor-pointer"
               >
                 Enter ↵
               </button>

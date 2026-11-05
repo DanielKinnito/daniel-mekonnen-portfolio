@@ -16,22 +16,24 @@ export const EXPERIENCES: Experience[] = [
     period: "May 2026 — Present",
     location: "Remote",
     type: "Contract",
-    skills: ["AI Evaluation", "LLM Reasoning", "Architecture", "Python"],
+    url: "https://afterquery.com",
+    skills: ["Backend Architecture", "Algorithmic Validation", "Python", "Code Review"],
     bullets: [
-      "Developed technical evaluation rubrics for NDA-restricted AI models to score complex reasoning and architecture tasks.",
-      "Debugged and validated LLM-generated code to enforce algorithmic correctness across multi-turn technical prompts.",
+      "Developed technical evaluation rubrics to score complex distributed architectures and backend systems reasoning.",
+      "Debugged and validated backend code to enforce algorithmic correctness and optimal performance.",
     ],
   },
   {
     company: "Revelo",
-    role: "Technical Code Evaluator",
+    role: "Software Engineer",
     period: "Jan 2026 — Mar 2026",
     location: "Remote",
     type: "Contract",
-    skills: ["Python", "Go", "Code Auditing", "Prompt Engineering"],
+    url: "https://www.revelo.com",
+    skills: ["Python", "Go", "Code Auditing", "Backend Systems"],
     bullets: [
-      "Audited and refactored AI-generated Python and Go code to resolve logic flaws and improve output accuracy.",
-      "Analyzed multi-turn technical dialogues to strengthen model context retention and logical consistency.",
+      "Audited and refactored Python and Go microservices to resolve logic flaws and improve runtime efficiency.",
+      "Analyzed system architectures and algorithmic bottlenecks to strengthen code quality and maintainability.",
     ],
   },
   {
@@ -52,6 +54,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Jun 2024 — Sept 2024",
     location: "Addis Ababa, Ethiopia",
     type: "Internship",
+    url: "https://eskalate.io",
     skills: ["Flutter", "Dart", "Clean Architecture", "REST API", "TDD"],
     bullets: [
       "Led a 4-engineer team to build a mobile product catalog, optimizing REST API data retrieval with local caching.",
@@ -60,4 +63,3 @@ export const EXPERIENCES: Experience[] = [
     ],
   },
 ];
-

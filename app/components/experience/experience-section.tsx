@@ -15,7 +15,7 @@ export default function ExperienceSection() {
           Work Experience
         </h2>
         <p className="max-w-2xl text-base text-secondary">
-          Engineering roles focused on LLM reasoning validation, technical curriculum leadership, and production-grade architectures.
+          Production software engineering roles, clean architecture implementations, and technical leadership.
         </p>
       </div>
 

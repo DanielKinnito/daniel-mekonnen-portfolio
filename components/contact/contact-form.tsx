@@ -7,6 +7,7 @@ import Button from "../ui/button";
 import { ContactFormErrors, ContactFormValues } from "@/lib/types/contact";
 import contactFormValidation from "@/lib/validation/contact-form-validations";
 import emailjs from "@emailjs/browser";
+import { GMAIL_LINK } from "@/lib/constants";
 
 export default function ContactForm() {
   const [formValues, setFormValues] = useState<ContactFormValues>({
@@ -52,11 +53,17 @@ export default function ContactForm() {
           },
           publicKey
         );
+        setStatusMsg("Message sent successfully!");
+        setFormValues({ email: "", message: "", subject: "" });
+        setIsCooldown(true);
+        setTimeout(() => setIsCooldown(false), 30000);
+      } else {
+        // Fallback if EmailJS API keys are unconfigured in environment
+        window.location.href = `mailto:${GMAIL_LINK}?subject=${encodeURIComponent(
+          formValues.subject
+        )}&body=${encodeURIComponent(formValues.message)}`;
+        setStatusMsg("Opening your email client to send message...");
       }
-      setStatusMsg("Message sent successfully!");
-      setFormValues({ email: "", message: "", subject: "" });
-      setIsCooldown(true);
-      setTimeout(() => setIsCooldown(false), 30000);
     } catch (err) {
       console.error("Email send error:", err);
       setStatusMsg("Failed to send message. Please email directly.");

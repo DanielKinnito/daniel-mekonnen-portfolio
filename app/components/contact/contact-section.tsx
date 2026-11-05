@@ -43,7 +43,7 @@ export default function ContactSection() {
           Get in Touch
         </h2>
         <p className="max-w-2xl text-base text-secondary">
-          Open to backend engineering roles, AI reasoning evaluation consulting, and technical collaborations.
+          Open to backend engineering roles, distributed systems architecture, and technical collaborations.
         </p>
       </div>
 

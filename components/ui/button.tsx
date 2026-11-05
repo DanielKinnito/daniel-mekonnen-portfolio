@@ -9,6 +9,9 @@ interface ButtonProps {
   icon?: string;
   shortcut?: string;
   className?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
   onClick?: () => void;
 }
 
@@ -18,6 +21,9 @@ export default function Button({
   icon = "",
   shortcut = "",
   className = "",
+  href,
+  target,
+  rel,
   onClick,
 }: ButtonProps) {
   // PostHog tactile mechanical keycap classes with physical 3D depression on press
@@ -33,11 +39,8 @@ export default function Button({
       "bg-surface text-secondary hover:text-primary border-border shadow-[0_2px_0_0_#2B2D33] dark:shadow-[0_2px_0_0_#0A0B0D] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none",
   };
 
-  return (
-    <button
-      onClick={onClick}
-      className={cn(baseClasses, variantClasses[variant], className)}
-    >
+  const innerContent = (
+    <>
       <span>{text}</span>
       {shortcut && (
         <kbd className="hidden sm:inline-block rounded px-1.5 py-0.5 text-[10px] font-mono font-bold bg-black/20 text-white/90 dark:bg-white/10 dark:text-white/80 border border-white/20 uppercase">
@@ -53,6 +56,29 @@ export default function Button({
           className="w-3.5 h-3.5 opacity-90 inline-block"
         />
       )}
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        onClick={onClick}
+        className={cn(baseClasses, variantClasses[variant], className)}
+      >
+        {innerContent}
+      </a>
+    );
+  }
+
+  return (
+    <button
+      onClick={onClick}
+      className={cn(baseClasses, variantClasses[variant], className)}
+    >
+      {innerContent}
     </button>
   );
 }

@@ -15,6 +15,7 @@ export const EDUCATION_LIST: Education[] = [
     degree: "BSc in Software Engineering",
     period: "June 2021 — June 2025",
     location: "Addis Ababa, Ethiopia",
+    url: "http://www.aastu.edu.et",
     gpa: "3.58 / 4.0",
     badges: ["Machine Learning", "Mobile Computing", "Software Project Management"],
     bullets: [

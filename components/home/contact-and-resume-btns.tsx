@@ -33,28 +33,27 @@ export default function ContactAndResumeBtns() {
 
   return (
     <div className="flex flex-wrap items-center gap-3 pt-2">
-      <a href="#experience">
-        <Button
-          variant="primary"
-          text="View Experience"
-          shortcut="E"
-        />
-      </a>
-      <a href="#projects">
-        <Button
-          variant="secondary"
-          text="Featured Projects"
-          shortcut="P"
-        />
-      </a>
-      <a href={RESUME_LINK} target="_blank" rel="noopener noreferrer">
-        <Button
-          variant="outline"
-          text="Download Resume"
-          shortcut="R"
-          icon="/svg/download.svg"
-        />
-      </a>
+      <Button
+        variant="primary"
+        text="View Experience"
+        shortcut="E"
+        href="#experience"
+      />
+      <Button
+        variant="secondary"
+        text="Featured Projects"
+        shortcut="P"
+        href="#projects"
+      />
+      <Button
+        variant="outline"
+        text="Download Resume"
+        shortcut="R"
+        icon="/svg/download.svg"
+        href={RESUME_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+      />
     </div>
   );
 }
